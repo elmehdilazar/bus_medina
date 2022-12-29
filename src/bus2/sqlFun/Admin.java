@@ -29,7 +29,11 @@ PreparedStatement stmt = c.prepareStatement(sql);
 stmt.setInt(1, id);
 stmt.executeUpdate();   
    }
-    
+  
+ /**
+ *
+ * fgdjfdjgio
+ */   
 
 
 }
