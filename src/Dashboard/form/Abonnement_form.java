@@ -26,46 +26,11 @@ public class Abonnement_form extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        roundPanel1 = new Dashboard.swing.RoundPanel();
-        roundPanel2 = new Dashboard.swing.RoundPanel();
-
         setBackground(new java.awt.Color(21, 21, 21));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        roundPanel1.setBackground(new java.awt.Color(51, 51, 51));
-
-        javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
-        roundPanel1.setLayout(roundPanel1Layout);
-        roundPanel1Layout.setHorizontalGroup(
-            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-        );
-        roundPanel1Layout.setVerticalGroup(
-            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 590, 80));
-
-        roundPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
-        roundPanel2.setLayout(roundPanel2Layout);
-        roundPanel2Layout.setHorizontalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-        roundPanel2Layout.setVerticalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
-        );
-
-        add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 250, 370));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.swing.RoundPanel roundPanel2;
     // End of variables declaration//GEN-END:variables
 }
