@@ -2,9 +2,12 @@
 package Dashboard.main;
 
 import Dashboard.event.EventMenu;
+import Dashboard.form.Abonnement_form;
+import Dashboard.form.Cartier_form;
 import Dashboard.form.Form;
+import Dashboard.form.Ligne_form;
 import Dashboard.form.Main_form;
-import bus2.NewJFrame;
+import Dashboard.form.Station_from;
 import java.awt.Component;
 
 
@@ -17,12 +20,28 @@ public class main_dashboard extends javax.swing.JFrame {
         EventMenu event = new EventMenu() {
             @Override
             public void selected(int index) {
-                 if (index == 0) {
-                    showForm(new Main_form());
-                } else if (index == 8) {
-                    System.out.println("Logout");
-                } else {
-                    showForm(new Form(index));
+                switch (index) {
+                    case 0:
+                        showForm(new Main_form());
+                        break;
+                    case 1:
+                        showForm(new Station_from());
+                        break;
+                    case 2:
+                        showForm(new Cartier_form());
+                        break;
+                    case 3:
+                        showForm(new Ligne_form());
+                        break;
+                    case 4:
+                        showForm(new Abonnement_form());
+                        break;
+                    case 8:
+                        System.out.println("Logout");
+                        break;
+                    default:
+                        showForm(new Form(index));
+                        break;
                 }
             }
         };
@@ -62,16 +81,17 @@ public class main_dashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 787, Short.MAX_VALUE)
                 .addContainerGap())
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE))
+            .addGroup(roundPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,6 +125,5 @@ public class main_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private Dashboard.component.Menu menu1;
     private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.swing.RoundPanel roundPanel3;
     // End of variables declaration//GEN-END:variables
 }
