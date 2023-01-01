@@ -23,7 +23,7 @@ public class Station_from extends javax.swing.JPanel {
         ScrollBarCustom sb = new ScrollBarCustom();
         sb.setForeground(new Color(51, 51, 51, 100));
         //getContentPane().setBackground(new Color(30, 30, 30));
-        tableDark1.fixTable(jScrollPane1);
+    
         
        
     }
@@ -38,100 +38,37 @@ public class Station_from extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        roundPanel1 = new Dashboard.swing.RoundPanel();
-        roundPanel2 = new Dashboard.swing.RoundPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tableDark1 = new Dashboard.form.TableDark();
-        roundPanel4 = new Dashboard.swing.RoundPanel();
-        jBtn1 = new Dashboard.component.jBtn();
-        jLabel1 = new javax.swing.JLabel();
-        textField1 = new Dashboard.component.TextField();
-        textField2 = new Dashboard.component.TextField();
+        roundPanel3 = new Dashboard.swing.RoundPanel();
+        roundPanel5 = new Dashboard.swing.RoundPanel();
 
         setBackground(new java.awt.Color(21, 21, 21));
         setPreferredSize(new java.awt.Dimension(760, 640));
 
-        roundPanel1.setBackground(new java.awt.Color(21, 21, 21));
+        roundPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        roundPanel3.setPreferredSize(new java.awt.Dimension(740, 200));
 
-        roundPanel2.setBackground(new java.awt.Color(51, 51, 51));
-
-        tableDark1.setBackground(new java.awt.Color(51, 51, 51));
-        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Id ", "Nom"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tableDark1);
-
-        javax.swing.GroupLayout roundPanel2Layout = new javax.swing.GroupLayout(roundPanel2);
-        roundPanel2.setLayout(roundPanel2Layout);
-        roundPanel2Layout.setHorizontalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE)
-                .addContainerGap())
+        javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
+        roundPanel3.setLayout(roundPanel3Layout);
+        roundPanel3Layout.setHorizontalGroup(
+            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 748, Short.MAX_VALUE)
         );
-        roundPanel2Layout.setVerticalGroup(
-            roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        roundPanel3Layout.setVerticalGroup(
+            roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
 
-        roundPanel4.setBackground(new java.awt.Color(51, 51, 51));
-        roundPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        roundPanel5.setBackground(new java.awt.Color(51, 51, 51));
 
-        jBtn1.setText("Save");
-        jBtn1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        roundPanel4.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 120, 40));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(200, 200, 200));
-        jLabel1.setText("Ajouter un station");
-        roundPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 19, 174, 32));
-
-        textField1.setText("Enter le nom de Station");
-        roundPanel4.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 243, -1));
-
-        textField2.setText("Enter le ID");
-        roundPanel4.add(textField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 243, -1));
-
-        javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
-        roundPanel1.setLayout(roundPanel1Layout);
-        roundPanel1Layout.setHorizontalGroup(
-            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 760, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout roundPanel5Layout = new javax.swing.GroupLayout(roundPanel5);
+        roundPanel5.setLayout(roundPanel5Layout);
+        roundPanel5Layout.setHorizontalGroup(
+            roundPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        roundPanel1Layout.setVerticalGroup(
-            roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(roundPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addComponent(roundPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+        roundPanel5Layout.setVerticalGroup(
+            roundPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 382, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -139,13 +76,19 @@ public class Station_from extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(roundPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(roundPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 748, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(roundPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -160,14 +103,7 @@ public class Station_from extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Dashboard.component.jBtn jBtn1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.swing.RoundPanel roundPanel2;
-    private Dashboard.swing.RoundPanel roundPanel4;
-    private Dashboard.form.TableDark tableDark1;
-    private Dashboard.component.TextField textField1;
-    private Dashboard.component.TextField textField2;
+    private Dashboard.swing.RoundPanel roundPanel3;
+    private Dashboard.swing.RoundPanel roundPanel5;
     // End of variables declaration//GEN-END:variables
 }

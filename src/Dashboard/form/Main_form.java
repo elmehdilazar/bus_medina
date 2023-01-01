@@ -14,7 +14,7 @@ public class Main_form extends javax.swing.JPanel {
         setOpaque(false);
         ScrollBarCustom sb = new ScrollBarCustom();
         sb.setForeground(new Color(51, 51, 51, 100));
-        //getContentPane().setBackground(new Color(30, 30, 30));
+       
         tableDark1.fixTable(jScrollPane2);
         
     }
@@ -75,11 +75,11 @@ public class Main_form extends javax.swing.JPanel {
         roundPanel2.setLayout(roundPanel2Layout);
         roundPanel2Layout.setHorizontalGroup(
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 539, Short.MAX_VALUE)
         );
         roundPanel2Layout.setVerticalGroup(
             roundPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 139, Short.MAX_VALUE)
+            .addGap(0, 99, Short.MAX_VALUE)
         );
 
         roundPanel3.setBackground(new java.awt.Color(51, 51, 51));
