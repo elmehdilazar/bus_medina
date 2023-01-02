@@ -4,6 +4,8 @@
  */
 package bus2;
 
+import java.awt.Color;
+
 /**
  *
  * @author IGA_BELV
@@ -15,6 +17,9 @@ public class client extends javax.swing.JFrame {
      */
     public client() {
         initComponents();
+      //  jPanel1.setOpaque(false);
+   //  jPanel1.setBackground(new Color(0, 0, 0, 128));
+  
     }
 
     /**
@@ -26,7 +31,18 @@ public class client extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        shadowFilter1 = new com.jhlabs.image.ShadowFilter();
+        shadowFilter2 = new com.jhlabs.image.ShadowFilter();
+        jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        roundPanel1 = new Dashboard.swing.RoundPanel();
+        roundPanel2 = new Dashboard.swing.RoundPanel();
+        roundPanel3 = new Dashboard.swing.RoundPanel();
+        roundPanel4 = new Dashboard.swing.RoundPanel();
+        roundPanel5 = new Dashboard.swing.RoundPanel();
+        roundPanel6 = new Dashboard.swing.RoundPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -41,17 +57,53 @@ public class client extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new Color(0,0,0,128));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setBackground(null);
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("X");
+        jLabel4.setAlignmentX(1029.0F);
+        jLabel4.setAlignmentY(15.0F);
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 0, 50, 60));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1029, 15, 20, 30));
+
+        jLabel5.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("bus");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 23, 50, -1));
+
+        jLabel6.setBackground(new java.awt.Color(255, 224, 25));
+        jLabel6.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 224, 25));
+        jLabel6.setText("medina");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 23, 140, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
+
+        roundPanel1.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 129, 230, 110));
+
+        roundPanel2.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 129, 230, 110));
+
+        roundPanel3.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 315, 230, 110));
+
+        roundPanel4.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 315, 230, 110));
+
+        roundPanel5.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 315, 230, 110));
+
+        roundPanel6.setBackground(new Color(255,224,25,179));
+        getContentPane().add(roundPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 129, 230, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir2.jpg"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -125,5 +177,16 @@ public class client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private Dashboard.swing.RoundPanel roundPanel1;
+    private Dashboard.swing.RoundPanel roundPanel2;
+    private Dashboard.swing.RoundPanel roundPanel3;
+    private Dashboard.swing.RoundPanel roundPanel4;
+    private Dashboard.swing.RoundPanel roundPanel5;
+    private Dashboard.swing.RoundPanel roundPanel6;
+    private com.jhlabs.image.ShadowFilter shadowFilter1;
+    private com.jhlabs.image.ShadowFilter shadowFilter2;
     // End of variables declaration//GEN-END:variables
 }
