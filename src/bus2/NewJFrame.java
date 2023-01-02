@@ -72,7 +72,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("X");
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -97,7 +97,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel5.setText("mot de pass");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 216, 328, -1));
 
-        txtusername.setBackground(new java.awt.Color(255, 255, 255));
         txtusername.setFont(txtusername.getFont().deriveFont(txtusername.getFont().getSize()+2f));
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
         txtusername.setBorder(null);
@@ -124,7 +123,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel8.setText("nom d'utilisateur");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 140, 328, -1));
 
-        txtpassword.setBackground(new java.awt.Color(255, 255, 255));
         txtpassword.setFont(txtpassword.getFont().deriveFont(txtpassword.getFont().getSize()+2f));
         txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
@@ -139,15 +137,14 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("vous avez obliez votre mot de pass ?");
-        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 286, 245, -1));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 224, 25));
         jButton1.setText("se connecter");
         jButton1.setBorder(null);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -164,12 +161,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("s'inscrire");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 365, 86, -1));
 
         disabled.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         disabled.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-hide-24.png"))); // NOI18N
-        disabled.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        disabled.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         disabled.setPreferredSize(new java.awt.Dimension(40, 40));
         disabled.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -180,7 +177,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         show.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         show.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-eye-24.png"))); // NOI18N
-        show.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        show.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         show.setPreferredSize(new java.awt.Dimension(40, 40));
         show.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
