@@ -31,28 +31,28 @@ public class client extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        shadowFilter1 = new com.jhlabs.image.ShadowFilter();
-        shadowFilter2 = new com.jhlabs.image.ShadowFilter();
+        shadowFilter1 = new org.netbeans.modules.form.InvalidComponent();
+        shadowFilter2 = new org.netbeans.modules.form.InvalidComponent();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        roundPanel1 = new Dashboard.swing.RoundPanel();
+        roundPanel1 = new org.netbeans.modules.form.InvalidComponent();
         jLabel6 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        roundPanel2 = new Dashboard.swing.RoundPanel();
+        roundPanel2 = new org.netbeans.modules.form.InvalidComponent();
         jLabel11 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        roundPanel3 = new Dashboard.swing.RoundPanel();
+        roundPanel3 = new org.netbeans.modules.form.InvalidComponent();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        roundPanel4 = new Dashboard.swing.RoundPanel();
+        roundPanel4 = new org.netbeans.modules.form.InvalidComponent();
         jLabel13 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        roundPanel5 = new Dashboard.swing.RoundPanel();
+        roundPanel5 = new org.netbeans.modules.form.InvalidComponent();
         jLabel12 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        roundPanel6 = new Dashboard.swing.RoundPanel();
+        roundPanel6 = new org.netbeans.modules.form.InvalidComponent();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -99,7 +99,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
 
-        roundPanel1.setBackground(new Color(255,224,25,179));
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setBackground(new java.awt.Color(255, 224, 25));
@@ -114,7 +113,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 129, 230, 110));
 
-        roundPanel2.setBackground(new Color(255,224,25,179));
         roundPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(255, 224, 25));
@@ -129,7 +127,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 129, 230, 110));
 
-        roundPanel3.setBackground(new Color(255,224,25,179));
         roundPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setBackground(new java.awt.Color(255, 224, 25));
@@ -144,7 +141,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 315, 230, 110));
 
-        roundPanel4.setBackground(new Color(255,224,25,179));
         roundPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(255, 224, 25));
@@ -159,7 +155,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 315, 230, 110));
 
-        roundPanel5.setBackground(new Color(255,224,25,179));
         roundPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(255, 224, 25));
@@ -174,7 +169,6 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 315, 230, 110));
 
-        roundPanel6.setBackground(new Color(255,224,25,179));
         roundPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setBackground(new java.awt.Color(255, 224, 25));
@@ -276,13 +270,13 @@ public class client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.swing.RoundPanel roundPanel2;
-    private Dashboard.swing.RoundPanel roundPanel3;
-    private Dashboard.swing.RoundPanel roundPanel4;
-    private Dashboard.swing.RoundPanel roundPanel5;
-    private Dashboard.swing.RoundPanel roundPanel6;
-    private com.jhlabs.image.ShadowFilter shadowFilter1;
-    private com.jhlabs.image.ShadowFilter shadowFilter2;
+    private org.netbeans.modules.form.InvalidComponent roundPanel1;
+    private org.netbeans.modules.form.InvalidComponent roundPanel2;
+    private org.netbeans.modules.form.InvalidComponent roundPanel3;
+    private org.netbeans.modules.form.InvalidComponent roundPanel4;
+    private org.netbeans.modules.form.InvalidComponent roundPanel5;
+    private org.netbeans.modules.form.InvalidComponent roundPanel6;
+    private org.netbeans.modules.form.InvalidComponent shadowFilter1;
+    private org.netbeans.modules.form.InvalidComponent shadowFilter2;
     // End of variables declaration//GEN-END:variables
 }
