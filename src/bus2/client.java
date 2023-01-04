@@ -187,7 +187,7 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(roundPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 129, 230, 110));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir2.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
