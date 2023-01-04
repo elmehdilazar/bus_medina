@@ -7,6 +7,7 @@ import Dashboard.form.Cartier_form;
 import Dashboard.form.Form;
 import Dashboard.form.Ligne_form;
 import Dashboard.form.Main_form;
+import Dashboard.form.Parameter_form;
 import Dashboard.form.Station_from;
 import java.awt.Component;
 
@@ -36,6 +37,9 @@ public class main_dashboard extends javax.swing.JFrame {
                     case 4:
                         showForm(new Abonnement_form());
                         break;
+                    case 5:
+                        showForm(new Parameter_form());
+                        break;
                     case 8:
                         System.out.println("Logout");
                         break;
@@ -46,6 +50,7 @@ public class main_dashboard extends javax.swing.JFrame {
             }
         };
         menu1.initMenu(event);
+        simpleTitleBar1.init(this);
         showForm(new Main_form());
     }
     private void showForm(Component com) {
@@ -63,6 +68,7 @@ public class main_dashboard extends javax.swing.JFrame {
         roundPanel1 = new Dashboard.swing.RoundPanel();
         menu1 = new Dashboard.component.Menu();
         jPanel1 = new javax.swing.JPanel();
+        simpleTitleBar1 = new Dashboard.titleBar.SimpleTitleBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(245, 245, 245));
@@ -81,19 +87,21 @@ public class main_dashboard extends javax.swing.JFrame {
             .addGroup(roundPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(menu1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(simpleTitleBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 1071, Short.MAX_VALUE)
         );
         roundPanel1Layout.setVerticalGroup(
             roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(simpleTitleBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(roundPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(roundPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -127,5 +135,6 @@ public class main_dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private Dashboard.component.Menu menu1;
     private Dashboard.swing.RoundPanel roundPanel1;
+    private Dashboard.titleBar.SimpleTitleBar simpleTitleBar1;
     // End of variables declaration//GEN-END:variables
 }
