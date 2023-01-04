@@ -96,7 +96,7 @@ public class Cartier_form extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(200, 200, 200));
-        jLabel1.setText("Ajouter un cartier");
+        jLabel1.setText("Ajouter un quartier");
 
         textField1.setText("Enter le nom de cartier");
 
