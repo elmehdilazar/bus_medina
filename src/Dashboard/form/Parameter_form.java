@@ -117,7 +117,7 @@ public class Parameter_form extends javax.swing.JPanel {
                     .addContainerGap(328, Short.MAX_VALUE)))
         );
 
-        roundPanel1.add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 480, 490));
+        roundPanel1.add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 480, 490));
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MEHDI\\Downloads\\blob.png")); // NOI18N
         jLabel4.setAlignmentY(0.0F);
