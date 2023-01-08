@@ -2,9 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+<<<<<<< HEAD:src/bus2/client/client.java
 package bus2.client;
+import bus2.client.*;
+=======
+package bus2;
 
+>>>>>>> parent of a36fc5c (Merge pull request #5 from elmehdilazar/client):src/bus2/client.java
 import java.awt.Color;
+import java.awt.Component;
 
 /**
  *
@@ -35,6 +41,7 @@ public class client extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -59,6 +66,7 @@ public class client extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1077, 542));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -96,6 +104,9 @@ public class client extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 70));
 
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         roundPanel1.setBackground(new Color(255,224,25,179));
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -109,7 +120,7 @@ public class client extends javax.swing.JFrame {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-driveway-60.png"))); // NOI18N
         roundPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, 60));
 
-        getContentPane().add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 129, 230, 110));
+        jPanel2.add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 129, 230, 110));
 
         roundPanel2.setBackground(new Color(255,224,25,179));
         roundPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,7 +135,7 @@ public class client extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-company-60.png"))); // NOI18N
         roundPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        getContentPane().add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 129, 230, 110));
+        jPanel2.add(roundPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(757, 129, 230, 110));
 
         roundPanel3.setBackground(new Color(255,224,25,179));
         roundPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,7 +150,7 @@ public class client extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-driveway-60-price.png"))); // NOI18N
         roundPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        getContentPane().add(roundPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 315, 230, 110));
+        jPanel2.add(roundPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 315, 230, 110));
 
         roundPanel4.setBackground(new Color(255,224,25,179));
         roundPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,9 +165,14 @@ public class client extends javax.swing.JFrame {
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-discount-60.png"))); // NOI18N
         roundPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        getContentPane().add(roundPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 315, 230, 110));
+        jPanel2.add(roundPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(425, 315, 230, 110));
 
         roundPanel5.setBackground(new Color(255,224,25,179));
+        roundPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                roundPanel5MouseClicked(evt);
+            }
+        });
         roundPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setBackground(new java.awt.Color(255, 224, 25));
@@ -169,7 +185,7 @@ public class client extends javax.swing.JFrame {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-demand-60.png"))); // NOI18N
         roundPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        getContentPane().add(roundPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 315, 230, 110));
+        jPanel2.add(roundPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(755, 315, 230, 110));
 
         roundPanel6.setBackground(new Color(255,224,25,179));
         roundPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -184,7 +200,9 @@ public class client extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-bus-station-60.png"))); // NOI18N
         roundPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        getContentPane().add(roundPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 129, 230, 110));
+        jPanel2.add(roundPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 129, 230, 110));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1080, 470));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -196,7 +214,7 @@ public class client extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
 
-        setSize(new java.awt.Dimension(1077, 542));
+        setSize(new java.awt.Dimension(1077, 540));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -217,6 +235,15 @@ public class client extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void roundPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel5MouseClicked
+      Component com=new demende();
+        jPanel2.removeAll();
+        jPanel2.add(com);
+       jPanel2.revalidate();
+        jPanel2.repaint();
+        
+    }//GEN-LAST:event_roundPanel5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -273,6 +300,7 @@ public class client extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.swing.RoundPanel roundPanel2;
     private Dashboard.swing.RoundPanel roundPanel3;
