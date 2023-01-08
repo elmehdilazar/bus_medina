@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             <file>file:/C:/Users/mehdi/bus2/src/bus2/client.java</file>
             <file>file:/C:/Users/mehdi/bus2/src/bus2/icon/icons8-bus-station-60.png</file>
@@ -10,6 +11,7 @@
             <file>file:/C:/Users/mehdi/bus2/src/bus2/NewJFrame.java</file>
 =======
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/form/Cartier_form.java</file>
+            <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/component/TextField.java</file>
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/form/Abonnement_form.java</file>
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/form/Station_from.java</file>
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/form/Main_form.java</file>
@@ -18,6 +20,13 @@
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/main/main_dashboard.java</file>
             <file>file:/C:/Users/MEHDI/Desktop/JAVA%20Final%20Project/Projet/bus_medina-main/src/Dashboard/form/Parameter_form.java</file>
 >>>>>>> main
+=======
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/client/client.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/client/demende.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/Dashboard/form/Cartier_form.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/client/home.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/NewJFrame.java</file>
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>

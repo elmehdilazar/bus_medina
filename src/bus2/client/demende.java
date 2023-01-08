@@ -129,10 +129,10 @@ public class demende extends javax.swing.JPanel {
         jLabel10.setText("nom");
         roundPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 94, 316, 390));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 316, 390));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 540));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
