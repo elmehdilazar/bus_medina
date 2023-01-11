@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package bus2.client;
+package bus2;
+
+import java.awt.Color;
 
 /**
  *
@@ -31,10 +33,12 @@ public class tarif_par_ligne extends javax.swing.JPanel {
         tableDark1 = new Dashboard.form.TableDark();
         textField1 = new Dashboard.component.TextField();
         jBtn1 = new Dashboard.component.jBtn();
-        jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        roundPanel1.setBackground(new Color(0,0,0,128));
+        roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableDark1.setModel(new javax.swing.table.DefaultTableModel(
@@ -50,7 +54,7 @@ public class tarif_par_ligne extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableDark1);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 940, 310));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
 
         textField1.setText("recherche...");
         textField1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,15 +62,12 @@ public class tarif_par_ligne extends javax.swing.JPanel {
                 textField1ActionPerformed(evt);
             }
         });
-        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 190, 40));
+        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 190, 40));
 
         jBtn1.setText("recherchez");
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 200, 40));
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 200, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1030, 430));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 470));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1030, 410));
     }// </editor-fold>//GEN-END:initComponents
 
     private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
@@ -76,7 +77,6 @@ public class tarif_par_ligne extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Dashboard.component.jBtn jBtn1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableDark1;

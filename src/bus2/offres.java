@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package bus2.client;
+package bus2;
 
 /**
  *
@@ -29,9 +29,8 @@ public class offres extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        roundPanel4 = new Dashboard.swing.RoundPanel();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/carte-abonnement-1.v2-300x195.png"))); // NOI18N
@@ -45,32 +44,12 @@ public class offres extends javax.swing.JPanel {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/carte-etudiant-HD-300x195.png"))); // NOI18N
         jLabel4.setText("jLabel2");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 300, 200));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 460));
-
-        roundPanel4.setPreferredSize(new java.awt.Dimension(300, 195));
-
-        javax.swing.GroupLayout roundPanel4Layout = new javax.swing.GroupLayout(roundPanel4);
-        roundPanel4.setLayout(roundPanel4Layout);
-        roundPanel4Layout.setHorizontalGroup(
-            roundPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        roundPanel4Layout.setVerticalGroup(
-            roundPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 195, Short.MAX_VALUE)
-        );
-
-        add(roundPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private Dashboard.swing.RoundPanel roundPanel4;
     // End of variables declaration//GEN-END:variables
 }
