@@ -37,6 +37,10 @@ public class demende extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -51,19 +55,19 @@ public class demende extends javax.swing.JPanel {
         jBtn1.setForeground(new java.awt.Color(255, 255, 255));
         jBtn1.setText("demandez");
         jBtn1.setFont(new java.awt.Font("Book Antiqua", 1, 16)); // NOI18N
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 180, -1));
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 160, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 224, 25));
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 224, 25));
         jLabel7.setText("votre carte");
-        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 110, -1));
+        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 110, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 224, 25));
         jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 22)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("demandez");
-        roundPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 110, -1));
+        roundPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 110, -1));
 
         jLabel3.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,24 +89,80 @@ public class demende extends javax.swing.JPanel {
         jLabel10.setText("nom");
         roundPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
+        jTextField1.setBackground(new Color(0,0,0,0));
+        jTextField1.setForeground(new java.awt.Color(255, 224, 25));
+        jTextField1.setBorder(null);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 200, 20));
+
+        jTextField2.setBackground(new Color(0,0,0,0));
+        jTextField2.setForeground(new java.awt.Color(255, 224, 25));
+        jTextField2.setBorder(null);
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 200, 20));
+
+        jTextField3.setBackground(new Color(0,0,0,0));
+        jTextField3.setForeground(new java.awt.Color(255, 224, 25));
+        jTextField3.setBorder(null);
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 200, 20));
+
+        jTextField4.setBackground(new Color(0,0,0,0));
+        jTextField4.setForeground(new java.awt.Color(255, 224, 25));
+        jTextField4.setBorder(null);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, 200, 20));
+
         jLabel1.setForeground(new java.awt.Color(255, 224, 25));
-        jLabel1.setText("_______________________________________");
+        jLabel1.setText("_________________________________");
         roundPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, 30));
 
         jLabel2.setForeground(new java.awt.Color(255, 224, 25));
-        jLabel2.setText("_______________________________________");
+        jLabel2.setText("_________________________________");
         roundPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 30));
 
         jLabel4.setForeground(new java.awt.Color(255, 224, 25));
-        jLabel4.setText("_______________________________________");
-        roundPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, 210, 30));
+        jLabel4.setText("_________________________________");
+        roundPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, 30));
 
         jLabel5.setForeground(new java.awt.Color(255, 224, 25));
-        jLabel5.setText("_______________________________________");
+        jLabel5.setText("_________________________________");
         roundPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, 30));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 316, 320));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 300, 370));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -117,6 +177,10 @@ public class demende extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private Dashboard.swing.RoundPanel roundPanel1;
     // End of variables declaration//GEN-END:variables
 }
