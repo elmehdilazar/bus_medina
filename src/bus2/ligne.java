@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package bus2.client;
+package bus2;
+
+import java.awt.Color;
 
 /**
  *
@@ -31,10 +33,12 @@ public class ligne extends javax.swing.JPanel {
         tableDark1 = new Dashboard.form.TableDark();
         jBtn1 = new Dashboard.component.jBtn();
         textField1 = new Dashboard.component.TextField();
-        jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        roundPanel1.setBackground(new Color(0,0,0,128));
+        roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tableDark1.setModel(new javax.swing.table.DefaultTableModel(
@@ -48,6 +52,7 @@ public class ligne extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableDark1.setOpaque(false);
         jScrollPane1.setViewportView(tableDark1);
 
         roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 855, 326));
@@ -58,15 +63,12 @@ public class ligne extends javax.swing.JPanel {
                 jBtn1ActionPerformed(evt);
             }
         });
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 12, 140, 40));
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 140, 40));
 
         textField1.setText("rechercher...");
-        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 11, 220, 40));
+        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 900, 420));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 460));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 900, 420));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
@@ -76,7 +78,6 @@ public class ligne extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Dashboard.component.jBtn jBtn1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableDark1;

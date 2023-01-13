@@ -1,10 +1,19 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Windows.old/Users/hp/Desktop/tp_algo/bus_medina/src/bus2/sqlFun/Admin.java</file>
-            <file>file:/C:/Windows.old/Users/hp/Desktop/tp_algo/bus_medina/src/bus2/sqlFun/main_test.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/offres.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/demende.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/ligne.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/home.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/quartier.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/station.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/tarif_par_ligne.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/client.java</file>
+            <file>file:/D:/cour%204eme%20anne/projet%20java/bus_medina/src/bus2/NewJFrame.java</file>
         </group>
     </open-files>
 </project-private>
+
