@@ -1,14 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-<<<<<<< HEAD:src/bus2/client/client.java
-package bus2.client;
-import bus2.client.*;
-=======
-package bus2;
 
->>>>>>> parent of a36fc5c (Merge pull request #5 from elmehdilazar/client):src/bus2/client.java
+package bus2.client;
+import bus2.client.demande;
+import java.awt.Component;
+
+
 import java.awt.Color;
 import java.awt.Component;
 
@@ -66,7 +61,6 @@ public class client extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1077, 542));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -237,10 +231,11 @@ public class client extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void roundPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel5MouseClicked
-      Component com=new demende();
+        Component com;
+        com = new demande();
         jPanel2.removeAll();
         jPanel2.add(com);
-       jPanel2.revalidate();
+        jPanel2.revalidate();
         jPanel2.repaint();
         
     }//GEN-LAST:event_roundPanel5MouseClicked

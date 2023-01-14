@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package bus2.client;
 
 import java.awt.Color;
@@ -10,12 +6,12 @@ import java.awt.Color;
  *
  * @author mehdi
  */
-public class demende extends javax.swing.JPanel {
+public class demande extends javax.swing.JPanel {
 
     /**
-     * Creates new form demende
+     * Creates new form demande
      */
-    public demende() {
+    public demande() {
         initComponents();
         roundPanel1.setBackground(new Color(0,0,0,128));
     }

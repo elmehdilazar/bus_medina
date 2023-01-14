@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-package bus2.client;
+package bus2;
 
-/**
- *
- * @author mehdi
- */
+
 public class tarif_par_ligne extends javax.swing.JPanel {
 
     /**

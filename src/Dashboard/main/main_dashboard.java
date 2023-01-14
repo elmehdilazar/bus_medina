@@ -3,24 +3,28 @@ package Dashboard.main;
 
 import Dashboard.event.EventMenu;
 import Dashboard.form.Abonnement_form;
-import Dashboard.form.Cartier_form;
+import Dashboard.form.quartier_form;
 import Dashboard.form.Form;
 import Dashboard.form.Ligne_form;
 import Dashboard.form.Main_form;
 import Dashboard.form.Parameter_form;
 import Dashboard.form.Station_from;
 import java.awt.Component;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
 
 public class main_dashboard extends javax.swing.JFrame {
 
-    public main_dashboard() {
+    public main_dashboard()throws Exception {
         initComponents();
-        EventMenu event = new EventMenu() {
+        EventMenu event;
+        event = new EventMenu() {
             @Override
-            public void selected(int index) {
+            public void selected(int index) throws Exception {
+                
                 switch (index) {
                     case 0:
                         showForm(new Main_form());
@@ -29,7 +33,7 @@ public class main_dashboard extends javax.swing.JFrame {
                         showForm(new Station_from());
                         break;
                     case 2:
-                        showForm(new Cartier_form());
+                        showForm(new quartier_form());
                         break;
                     case 3:
                         showForm(new Ligne_form());
@@ -124,7 +128,11 @@ public class main_dashboard extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new main_dashboard().setVisible(true);
+                try {
+                    new main_dashboard().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(main_dashboard.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

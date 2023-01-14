@@ -9,6 +9,8 @@ import Dashboard.swing.ButtonMenu;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -32,11 +34,10 @@ private EventMenu event;
        this.event = event;
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/dash.png")), "Dashboard", 0);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/station.png")), "Station", 1);
-        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/cartier.png")), "Cartier", 2);
+        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/cartier.png")), "Quartier", 2);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/ligne.png")), "Ligne", 3);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/abonne.png")), "Abonement", 4);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/setting.png")), "Parameter", 5);
-        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/autre.png")), "Autre", 6);
         addEmpty();
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/logout.png")), "se deconnecter", 8);
         
@@ -46,16 +47,20 @@ private EventMenu event;
         panelMenu.add(new JLabel(), "push");
     }
 
-    private void addMenu(Icon icon, String text, int index) {
+    private void addMenu(Icon icon, String text, int index){
         ButtonMenu menu = new ButtonMenu();
         menu.setIcon(icon);
         menu.setText("  " + text);
         panelMenu.add(menu);
        menu.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                event.selected(index);
-                setSelected(menu);
+            public void actionPerformed(ActionEvent ae){
+                try {
+                    event.selected(index);
+                    setSelected(menu);
+                } catch (Exception ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -4,8 +4,17 @@
  */
 package Dashboard.form;
 
+import static Dashboard.form.Ligne_form.lista;
 import Dashboard.swing.scrollbar.ScrollBarCustom;
+
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -16,19 +25,62 @@ public class Station_from extends javax.swing.JPanel {
     /**
      * Creates new form Station_from
      */
-    public Station_from() {
+    public Station_from() throws Exception {
         initComponents();
+        tableDark1.setBackground(new Color(255,233,244,10));
         setOpaque(false);
         ScrollBarCustom sb = new ScrollBarCustom();
+        
         sb.setForeground(new Color(51, 51, 51, 100));
         //getContentPane().setBackground(new Color(30, 30, 30));
         tableDark1.fixTable(jScrollPane1);
-    
+         updatetab();
+         updatecombo();
+       
+         
+ 
         
        
     }
-    
+     
+    public void updatetab() throws Exception{
+         Connection c = Admin.connection();
+         String sql = "select * from stations";
+         PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         
+         ResultSet rs = st.executeQuery();
+         ResultSetMetaData rsData = rs.getMetaData();
+         int q = rsData.getColumnCount();
+         
+         DefaultTableModel RecordTable = (DefaultTableModel) tableDark1.getModel();
+         RecordTable.setRowCount(0);
+         while(rs.next()){
+             
+             Vector columnData = new Vector();
+               for(int i = 1;i<= q;i++){
+                   columnData.add(rs.getString("idstations"));
+                   columnData.add(rs.getString("nom_station"));
+               }
+               RecordTable.addRow(columnData);    
+       }
+       
+    }
 
+    
+    
+     public void updatecombo() throws Exception{
+         Connection c = Admin.connection();
+         String sql = "select id_ligne from ligne";
+         PreparedStatement stmt=c.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE);
+         
+         ResultSet rs2 = stmt.executeQuery();
+         
+          while(rs2.next()){
+                ligne_box.addItem(rs2.getString("id_ligne"));
+                 
+       }
+          
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,9 +92,13 @@ public class Station_from extends javax.swing.JPanel {
 
         roundPanel3 = new Dashboard.swing.RoundPanel();
         jBtn1 = new Dashboard.component.jBtn();
-        textField3 = new Dashboard.component.TextField();
-        textField4 = new Dashboard.component.TextField();
+        nom_station = new Dashboard.component.TextField();
+        idstations = new Dashboard.component.TextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        ligne_box = new javax.swing.JComboBox<>();
         roundPanel5 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableDark1 = new Dashboard.form.TableDark();
@@ -65,17 +121,15 @@ public class Station_from extends javax.swing.JPanel {
             }
         });
 
-        textField3.setText("Enter le nom de Station");
-        textField3.addActionListener(new java.awt.event.ActionListener() {
+        nom_station.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField3ActionPerformed(evt);
+                nom_stationActionPerformed(evt);
             }
         });
 
-        textField4.setText("Enter le ID");
-        textField4.addActionListener(new java.awt.event.ActionListener() {
+        idstations.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField4ActionPerformed(evt);
+                idstationsActionPerformed(evt);
             }
         });
 
@@ -83,36 +137,63 @@ public class Station_from extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(200, 200, 200));
         jLabel1.setText("Ajouter une Station");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID de ligne");
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Enter le nom de Station");
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Enter le ID");
+
         javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
         roundPanel3.setLayout(roundPanel3Layout);
         roundPanel3Layout.setHorizontalGroup(
             roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel3Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
                 .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel3Layout.createSequentialGroup()
+                        .addContainerGap(582, Short.MAX_VALUE)
+                        .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(roundPanel3Layout.createSequentialGroup()
-                        .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(161, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(roundPanel3Layout.createSequentialGroup()
+                                .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(roundPanel3Layout.createSequentialGroup()
+                                        .addComponent(idstations, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nom_station, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(roundPanel3Layout.createSequentialGroup()
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(157, 157, 157)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ligne_box, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap())
         );
         roundPanel3Layout.setVerticalGroup(
             roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roundPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(2, 2, 2)
                 .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ligne_box, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(roundPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(idstations, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nom_station, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(42, 42, 42))
         );
 
         roundPanel5.setBackground(new java.awt.Color(51, 51, 51));
@@ -121,33 +202,37 @@ public class Station_from extends javax.swing.JPanel {
         tableDark1.setBackground(new java.awt.Color(51, 51, 51));
         tableDark1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"001", "120", "sebit", "medina"},
-                {"002", "97", "la fac", "centre"},
-                {"003", "63", "paris", "la gare"},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Nom", "Départ", "Destination"
+                "ID de station", "Nom de station"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(tableDark1);
@@ -164,9 +249,9 @@ public class Station_from extends javax.swing.JPanel {
         roundPanel5Layout.setVerticalGroup(
             roundPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roundPanel5Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -184,10 +269,10 @@ public class Station_from extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(roundPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(roundPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -200,26 +285,45 @@ public class Station_from extends javax.swing.JPanel {
     }//GEN-LAST:event_costumField4ActionPerformed
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-        // TODO add your handling code here:
+          try{
+             Connection c = Admin.connection();
+             Admin.ajout_station(c, idstations.getText(), nom_station.getText(),ligne_box.getSelectedItem().toString());
+             JOptionPane.showMessageDialog(null, "station "+idstations.getText()+" est enregistrer");
+            updatetab();
+            idstations	.setText("");
+            nom_station.setText("");
+            ligne_box.setSelectedItem("");
+            
+           
+              
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
     }//GEN-LAST:event_jBtn1ActionPerformed
 
-    private void textField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField3ActionPerformed
+    private void nom_stationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_stationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField3ActionPerformed
+    }//GEN-LAST:event_nom_stationActionPerformed
 
-    private void textField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField4ActionPerformed
+    private void idstationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idstationsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField4ActionPerformed
+    }//GEN-LAST:event_idstationsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Dashboard.component.TextField idstations;
     private Dashboard.component.jBtn jBtn1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> ligne_box;
+    private Dashboard.component.TextField nom_station;
     private Dashboard.swing.RoundPanel roundPanel3;
     private Dashboard.swing.RoundPanel roundPanel5;
     private Dashboard.form.TableDark tableDark1;
-    private Dashboard.component.TextField textField3;
-    private Dashboard.component.TextField textField4;
     // End of variables declaration//GEN-END:variables
 }
