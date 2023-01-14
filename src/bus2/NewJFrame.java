@@ -4,16 +4,38 @@
  */
 package bus2;
 
+import bus2.sqlFun.Admin;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  *
  * @author mehdi
  */
 public class NewJFrame extends javax.swing.JFrame {
+    private  Connection c;
 
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        initComponents();
+        try {
+        Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+              txtusername.setBackground(new java.awt.Color(0,0,0,1));
+         txtpassword.setBackground(new java.awt.Color(0,0,0,1));
+    }
+    /**
         initComponents();
         txtusername.setBackground(new java.awt.Color(0,0,0,1));
          txtpassword.setBackground(new java.awt.Color(0,0,0,1));
@@ -102,6 +124,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
         txtusername.setBorder(null);
         txtusername.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtusername.setName("txtusername"); // NOI18N
         txtusername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusernameActionPerformed(evt);
@@ -129,6 +152,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
         txtpassword.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtpassword.setName("txtpassword"); // NOI18N
         jPanel1.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 270, 30));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -202,6 +226,16 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        String username=txtusername.getText();
+        String password=txtpassword.getText();
+       
+        try {
+            Admin.admin_connection(c, username, password);
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusernameActionPerformed
