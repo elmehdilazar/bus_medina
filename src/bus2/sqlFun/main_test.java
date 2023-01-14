@@ -5,9 +5,8 @@
  */
 package bus2.sqlFun;
 
+import java.sql.*;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.time.LocalDate;
 
 /**
@@ -18,6 +17,7 @@ public class main_test {
     public static void main(String[] args) {
     
      try{
+         Class.forName("com.mysql.jdbc.Driver");
     Connection c= DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
 // Admin.admin_connection(c, "mehdi", "0000");
  
@@ -42,7 +42,14 @@ public class main_test {
  
 
  
- //Admin.affiche_abonement(c);
+ 
+ ResultSet ab=
+ Admin.affiche_abonement(c);
+        while(ab.next()){
+            
+                    //comboBoxSuggestion1.addItem(ab.getString(4)+"-"+ab.getString(1));
+                    System.out.println(ab.getString(4)+"-"+ab.getString(1));
+        }
  //Admin.cherche_abonnement(c, "a1");
  //Admin.attribuer_abonnement_personne(c, "elmehdi", 0, LocalDate.now(), LocalDate.now(), "travail", 1);
  

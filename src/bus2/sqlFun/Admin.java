@@ -37,7 +37,7 @@ stmt.executeUpdate();
  * fgdjfdjgio
  */ 
     
-    static void admin_connection(Connection c, String login,String pass) throws SQLException{
+   public static void admin_connection(Connection c, String login,String pass) throws SQLException{
         Statement stament= c.createStatement();
             ResultSet resultat= stament.executeQuery("SELECT * FROM admin WHERE login_admin like '"+login+"' and pass_admin like '"+pass+"' ");  
          while(resultat.next()){
@@ -288,15 +288,16 @@ static void recherche_station(Connection c, String nom_station) throws SQLExcept
 
 /* partie abonement */
 
-      static void affiche_abonement(Connection c) throws Exception{
+      public static ResultSet affiche_abonement(Connection c) throws Exception{
           Statement stament= c.createStatement();
             ResultSet resultat= stament.executeQuery("SELECT * FROM abonnement");
           
             
-            while(resultat.next()){
+          /*  while(resultat.next()){
                 System.out.println(resultat.getInt(1)+" "+resultat.getDate(2)+" "+resultat.getDate(3)+" "+resultat.getString(4)+" "+resultat.getString(5));
                 
-            }
+            }*/
+          return resultat;
     }
       
       
@@ -315,15 +316,21 @@ static void recherche_station(Connection c, String nom_station) throws SQLExcept
       
       
       /*partie personne */
-      static void afficher_personne(Connection c) throws SQLException{
+      static ResultSet afficher_personne(Connection c) throws SQLException{
            Statement stament= c.createStatement();
             ResultSet resultat= stament.executeQuery("SELECT * FROM personne");
           
             
-            while(resultat.next()){
-                System.out.println(resultat.getString(1)+" "+resultat.getString(2)+" "+resultat.getString(3)+" "+resultat.getInt(4)+" "+resultat.getString(5)+" "+resultat.getString(6)+" "+resultat.getDate(7));
+           /* while(resultat.next()){
+                System.out.println(resultat.getString(1)+" "+
+                        resultat.getString(2)+" "+
+                        resultat.getString(3)+" "+
+                        resultat.getInt(4)+" "+
+                        resultat.getString(5)+" "+
+                        resultat.getString(6)+" "+resultat.getDate(7));
                 
-            }
+            }*/
+           return resultat;
       }
       
          static void cherche_personne(Connection c, String cin) throws SQLException{
@@ -343,13 +350,13 @@ static void recherche_station(Connection c, String nom_station) throws SQLExcept
                 requete.executeUpdate(sql);
 }
       
-       static void ajouter_personne(Connection c, String cin,LocalDate d,int num, String adresse,String nom,String prenom,String mail)  throws SQLException{
+      public static void ajouter_personne(Connection c, String cin,LocalDate d,int num, String adresse,String nom,String prenom,String mail,int id_abon)  throws SQLException{
          
            Date d1= Date.valueOf(d);
            
            PreparedStatement req = c.prepareStatement("INSERT INTO personne VALUES(?,?,?,?,?,?,?,?)");
         req.setString(1, cin);  req.setString(2, nom);req.setString(3, prenom);req.setInt(4, num);req.setString(5,adresse);
-        req.setString(6, mail);req.setDate(7, d1); req.setInt(8, -1);
+        req.setString(6, mail);req.setDate(7, d1); req.setInt(8, id_abon);
         
         
         
