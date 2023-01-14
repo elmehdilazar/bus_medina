@@ -50,14 +50,14 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="Dashboard.form.TableDark" name="tableDark1">
+            <Component class="Dashboard.form.TableDark" name="tableAdmin">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                    <Column editable="true" title="num ligne" type="java.lang.Object"/>
+                    <Column editable="true" title="origine" type="java.lang.Object"/>
+                    <Column editable="true" title="destination" type="java.lang.Object"/>
+                    <Column editable="true" title="tarif" type="java.lang.Object"/>
                   </Table>
                 </Property>
               </Properties>

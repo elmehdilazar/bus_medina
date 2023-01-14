@@ -5,18 +5,69 @@
 package bus2;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author mehdi
  */
 public class tarif_par_ligne extends javax.swing.JPanel {
-
+private  Connection c;
     /**
      * Creates new form tarif_par_ligne
      */
     public tarif_par_ligne() {
         initComponents();
+          try{
+           Class.forName("com.mysql.jdbc.Driver");
+    c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
+        java.sql.ResultSet ab;
+            try {
+           updatetab() ;
+            } catch (Exception ex) {
+                Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    public void updatetab() throws Exception{
+         Connection c = this.c;
+         String sql = "select * from ligne";
+         PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         
+         ResultSet rs = st.executeQuery();
+         ResultSetMetaData rsData = rs.getMetaData();
+         int q = rsData.getColumnCount();
+         
+         DefaultTableModel RecordTable = (DefaultTableModel) tableAdmin.getModel();
+         RecordTable.setRowCount(0);
+         while(rs.next()){
+             
+             Vector columnData = new Vector();
+               for(int i = 1;i<= q;i++){
+                   columnData.add(rs.getString("id_ligne"));
+                
+                   columnData.add(rs.getString("origine"));
+                   columnData.add(rs.getString("destination"));
+                     columnData.add(rs.getString("tarif"));
+               }
+               RecordTable.addRow(columnData);    
+       }
+       
     }
 
     /**
@@ -30,7 +81,7 @@ public class tarif_par_ligne extends javax.swing.JPanel {
 
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableDark1 = new Dashboard.form.TableDark();
+        tableAdmin = new Dashboard.form.TableDark();
         textField1 = new Dashboard.component.TextField();
         jBtn1 = new Dashboard.component.jBtn();
 
@@ -41,7 +92,7 @@ public class tarif_par_ligne extends javax.swing.JPanel {
         roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
+        tableAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,10 +100,10 @@ public class tarif_par_ligne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "num ligne", "origine", "destination", "tarif"
             }
         ));
-        jScrollPane1.setViewportView(tableDark1);
+        jScrollPane1.setViewportView(tableAdmin);
 
         roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
 
@@ -79,7 +130,7 @@ public class tarif_par_ligne extends javax.swing.JPanel {
     private Dashboard.component.jBtn jBtn1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.form.TableDark tableDark1;
+    private Dashboard.form.TableDark tableAdmin;
     private Dashboard.component.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }
