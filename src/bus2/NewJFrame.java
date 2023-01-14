@@ -8,7 +8,7 @@ package bus2;
  *
  * @author mehdi
  */
-public class NewJFrame extends javax.swing.JFrame {
+public  class NewJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame

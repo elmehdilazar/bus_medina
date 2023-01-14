@@ -34,10 +34,11 @@ private EventMenu event;
        this.event = event;
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/dash.png")), "Dashboard", 0);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/station.png")), "Station", 1);
-        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/cartier.png")), "Quartier", 2);
+        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/quartier.png")), "Quartier", 2);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/ligne.png")), "Ligne", 3);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/abonne.png")), "Abonement", 4);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/setting.png")), "Parameter", 5);
+        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/icons8-user-20.png")), "Utilisateur", 6);
         addEmpty();
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/logout.png")), "se deconnecter", 8);
         
