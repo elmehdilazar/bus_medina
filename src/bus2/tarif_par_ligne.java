@@ -32,7 +32,7 @@ private  Connection c;
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         java.sql.ResultSet ab;
             try {
-           updatetab() ;
+              updatetab(null) ;
             } catch (Exception ex) {
                 Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -44,9 +44,17 @@ private  Connection c;
         }
        
     }
-    public void updatetab() throws Exception{
+    public void updatetab(String val) throws Exception{
          Connection c = this.c;
          String sql = "select * from ligne";
+         
+         if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..."){
+              sql = "select * from ligne";
+         }else{
+             sql = "select * from ligne where id_ligne="+val;
+         }
+         
+         
          PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
          
          ResultSet rs = st.executeQuery();
@@ -82,8 +90,7 @@ private  Connection c;
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAdmin = new Dashboard.form.TableDark();
-        textField1 = new Dashboard.component.TextField();
-        jBtn1 = new Dashboard.component.jBtn();
+        val = new Dashboard.component.TextField();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -107,30 +114,40 @@ private  Connection c;
 
         roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
 
-        textField1.setText("recherche...");
-        textField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField1ActionPerformed(evt);
+        val.setText("rechercher...");
+        val.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                valCaretUpdate(evt);
             }
         });
-        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 190, 40));
-
-        jBtn1.setText("recherchez");
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 200, 40));
+        val.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, 40));
 
         add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1030, 410));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
+    private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField1ActionPerformed
+    }//GEN-LAST:event_valActionPerformed
+
+    private void valCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_valCaretUpdate
+        // TODO add your handling code here:
+          try {
+        updatetab(val.getText());
+    } catch (Exception ex) {
+        Logger.getLogger(ligne.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_valCaretUpdate
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Dashboard.component.jBtn jBtn1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableAdmin;
-    private Dashboard.component.TextField textField1;
+    private Dashboard.component.TextField val;
     // End of variables declaration//GEN-END:variables
 }
