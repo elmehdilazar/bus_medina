@@ -102,7 +102,6 @@ private static client cli;
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 23, 140, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-home-20.png"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(20, 20));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 20, -1));
 
         jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
