@@ -1,26 +1,57 @@
 package Dashboard.form;
 
 import Dashboard.swing.scrollbar.ScrollBarCustom;
+import java.sql.*;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 
 public class Main_form extends javax.swing.JPanel {
 
-    public Main_form() {
+    public Main_form() throws Exception {
         initComponents();
         setOpaque(false);
         ScrollBarCustom sb = new ScrollBarCustom();
         sb.setForeground(new Color(51, 51, 51, 100));
 
-        tableDark1.fixTable(jScrollPane2);
+        personne_table.fixTable(jScrollPane2);
         showPersonne();
         showStations();
         showLigne();
+        updatetab();
     }
-
+    public void updatetab() throws Exception{
+         Connection c = Admin.connection();
+         String sql = "select * from personne";
+         PreparedStatement st = c.prepareStatement(sql);
+         
+         ResultSet rs = st.executeQuery();
+         ResultSetMetaData rsData = rs.getMetaData();
+         int q = rsData.getColumnCount();
+         
+         DefaultTableModel RecordTable = (DefaultTableModel) personne_table.getModel();
+         RecordTable.setRowCount(0);
+         while(rs.next()){
+             Vector columnData = new Vector();
+               for(int i = 1;i<= q;i++){
+                   columnData.add(rs.getString("CIN_PERSONNE"));
+                   columnData.add(rs.getString("nom_personne"));
+                   columnData.add(rs.getString("prenom_personne"));
+                   columnData.add(rs.getString("numero_personne"));
+                   columnData.add(rs.getString("email_personne"));
+                   columnData.add(rs.getString("id_abonnement"));
+               }
+               RecordTable.addRow(columnData);
+                
+                     
+                     }
+         
+        
+    }
     public void showPersonne() {
         try {
             // Connect to the database and create a Statement object
@@ -99,7 +130,7 @@ public class Main_form extends javax.swing.JPanel {
         lignes = new javax.swing.JLabel();
         roundPanel3 = new Dashboard.swing.RoundPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableDark1 = new Dashboard.form.TableDark();
+        personne_table = new Dashboard.form.TableDark();
         jLabel7 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(21, 21, 21));
@@ -175,30 +206,30 @@ public class Main_form extends javax.swing.JPanel {
 
         roundPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
-        tableDark1.setBackground(new java.awt.Color(51, 51, 51));
-        tableDark1.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
+        personne_table.setBackground(new java.awt.Color(51, 51, 51));
+        personne_table.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
+        personne_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nom", "Prenom", "CIN", "E-mail", "N° Telephone", "Adresse"
+                "CIN", "Nom", "Prenom", "N° Telephone", "E-mail", "id_abonnement"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -209,7 +240,8 @@ public class Main_form extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tableDark1);
+        personne_table.setGridColor(new java.awt.Color(255, 209, 0));
+        jScrollPane2.setViewportView(personne_table);
 
         javax.swing.GroupLayout roundPanel3Layout = new javax.swing.GroupLayout(roundPanel3);
         roundPanel3.setLayout(roundPanel3Layout);
@@ -267,9 +299,9 @@ public class Main_form extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lignes;
     private javax.swing.JLabel personne;
+    private Dashboard.form.TableDark personne_table;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.swing.RoundPanel roundPanel3;
     private javax.swing.JLabel stations;
-    private Dashboard.form.TableDark tableDark1;
     // End of variables declaration//GEN-END:variables
 }

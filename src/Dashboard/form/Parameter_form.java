@@ -106,6 +106,7 @@ public class Parameter_form extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tableAdmin.setGridColor(new java.awt.Color(255, 209, 0));
         jScrollPane1.setViewportView(tableAdmin);
 
         javax.swing.GroupLayout roundPanel1Layout = new javax.swing.GroupLayout(roundPanel1);
@@ -129,7 +130,7 @@ public class Parameter_form extends javax.swing.JPanel {
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setForeground(new java.awt.Color(255, 209, 0));
         jLabel5.setText("Gestion des administration");
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -233,10 +234,17 @@ public class Parameter_form extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-       try{
+       
+        String id = id_admin.getText();
+        String nom = nom_admin.getText();
+        String pre = prenom_admin.getText();
+        String user = user_admin.getText();
+        String pass = pass_admin.getText();
+        if(!id.isEmpty() && !nom.isEmpty() && !pre.isEmpty() && !user.isEmpty() && !pass.isEmpty()){
+            try{
              Connection c = Admin.connection();
-             Admin.ajouterAdmin(c, id_admin.getText(), nom_admin.getText(),prenom_admin.getText(),user_admin.getText(),pass_admin.getText());
-             JOptionPane.showMessageDialog(null, "L'admin "+nom_admin.getText()+" est enregistrer");
+             Admin.ajouterAdmin(c, id, nom,pre,user,pass);
+             JOptionPane.showMessageDialog(null, "L'admin "+nom+" est enregistrer");
             updatetab();
             id_admin.setText("");
             nom_admin.setText("");
@@ -250,6 +258,11 @@ public class Parameter_form extends javax.swing.JPanel {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
+        }else{
+            JOptionPane.showMessageDialog(null, "remplire tous les champs");
+        }
+        
+        
     }//GEN-LAST:event_jBtn1ActionPerformed
 
 
