@@ -35,13 +35,13 @@ private  Connection c;
             try {
               updatetab(null) ;
             } catch (Exception ex) {
-                Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
             }
        
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
         }
        
     }

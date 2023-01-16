@@ -5,6 +5,7 @@ jji
  */
 package bus2;
 
+import Dashboard.swing.scrollbar.ScrollBarCustom;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +29,11 @@ private  Connection c;
      */
     public quartier() {
         initComponents();
+        tableAdmin.setBackground(new Color(255,233,244,10));
+        setOpaque(false);
+        ScrollBarCustom sb = new ScrollBarCustom();
+        sb.setForeground(new Color(51, 51, 51, 100));
+        tableAdmin.fixTable(jScrollPane1);
           try{
            Class.forName("com.mysql.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
@@ -35,13 +41,13 @@ private  Connection c;
             try {
            updatetab(null) ;
             } catch (Exception ex) {
-                Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
             }
        
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void updatetab(String val) throws Exception{

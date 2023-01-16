@@ -171,7 +171,7 @@ private static client cli;
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
              setVisible(false);
-             NewJFrame j=new NewJFrame();
+             Login j=new Login();
              j.show();
              
     }//GEN-LAST:event_jLabel9MouseClicked

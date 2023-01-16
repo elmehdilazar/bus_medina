@@ -9,6 +9,8 @@ import Dashboard.swing.ButtonMenu;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -32,11 +34,11 @@ private EventMenu event;
        this.event = event;
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/dash.png")), "Dashboard", 0);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/station.png")), "Station", 1);
-        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/cartier.png")), "Cartier", 2);
+        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/quartier.png")), "Quartier", 2);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/ligne.png")), "Ligne", 3);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/abonne.png")), "Abonement", 4);
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/setting.png")), "Parameter", 5);
-        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/autre.png")), "Autre", 6);
+        addMenu(new ImageIcon(getClass().getResource("/bus2/icon/icons8-user-20.png")), "Utilisateur", 6);
         addEmpty();
         addMenu(new ImageIcon(getClass().getResource("/bus2/icon/dashboardIcons/logout.png")), "se deconnecter", 8);
         
@@ -46,16 +48,20 @@ private EventMenu event;
         panelMenu.add(new JLabel(), "push");
     }
 
-    private void addMenu(Icon icon, String text, int index) {
+    private void addMenu(Icon icon, String text, int index){
         ButtonMenu menu = new ButtonMenu();
         menu.setIcon(icon);
         menu.setText("  " + text);
         panelMenu.add(menu);
        menu.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                event.selected(index);
-                setSelected(menu);
+            public void actionPerformed(ActionEvent ae){
+                try {
+                    event.selected(index);
+                    setSelected(menu);
+                } catch (Exception ex) {
+                    Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -84,24 +90,26 @@ private EventMenu event;
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("LOGO");
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MEHDI\\Desktop\\Logo-casabus (2).png")); // NOI18N
 
         javax.swing.GroupLayout logo_containerLayout = new javax.swing.GroupLayout(logo_container);
         logo_container.setLayout(logo_containerLayout);
         logo_containerLayout.setHorizontalGroup(
             logo_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logo_containerLayout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(83, 83, 83))
+            .addGroup(logo_containerLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         logo_containerLayout.setVerticalGroup(
             logo_containerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, logo_containerLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+            .addGroup(logo_containerLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
+
+        jLabel2.getAccessibleContext().setAccessibleName("");
 
         leftside.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -115,7 +123,7 @@ private EventMenu event;
         );
         panelMenuLayout.setVerticalGroup(
             panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 506, Short.MAX_VALUE)
+            .addGap(0, 466, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout leftsideLayout = new javax.swing.GroupLayout(leftside);
