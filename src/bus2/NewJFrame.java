@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 
 /**
- *
+ *nfj
  * @author mehdi
  */
 public class NewJFrame extends javax.swing.JFrame {

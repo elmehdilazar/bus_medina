@@ -1,19 +1,31 @@
+/*
+jf
+j
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 
 package bus2;
-import bus2.client.demande;
-import bus2.client.demande;
-import java.awt.Component;
+
+
+
 
 
 import java.awt.Color;
 import java.awt.Component;
+
+import java.awt.Component;
+
+import java.awt.Color;
+import java.awt.PopupMenu;
+import javax.swing.JPanel;
 
 /**
  *
  * @author IGA_BELV
  */
 public class client extends javax.swing.JFrame {
-
+private static client cli;
     /**
      * Creates new form client
      */
@@ -21,7 +33,8 @@ public class client extends javax.swing.JFrame {
         initComponents();
       //  jPanel1.setOpaque(false);
    //  jPanel1.setBackground(new Color(0, 0, 0, 128));
-  
+   cli=this;
+        showForm(new home(cli));
     }
 
     /**
@@ -49,6 +62,7 @@ public class client extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("client"); // NOI18N
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1077, 542));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -148,16 +162,27 @@ public class client extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
-    private void roundPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel5MouseClicked
-        Component com;
-        com = new demande();
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        
+       showForm(new home(cli));
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+             setVisible(false);
+             NewJFrame j=new NewJFrame();
+             j.show();
+             
+    }//GEN-LAST:event_jLabel9MouseClicked
+   public  void showForm(Component com) {
         jPanel2.removeAll();
         jPanel2.add(com);
+         jPanel2.repaint();
         jPanel2.revalidate();
-        jPanel2.repaint();
-        
-    }//GEN-LAST:event_roundPanel5MouseClicked
-
+       
+    }
+  
     /**
      * @param args the command line arguments
      */
