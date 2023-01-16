@@ -6,7 +6,8 @@ package bus2;
 
 import java.awt.Color;
 import java.awt.Component;
-import bus2.client;
+
+
 
 /**
  *
