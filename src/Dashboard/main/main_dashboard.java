@@ -22,10 +22,12 @@ import javax.swing.JOptionPane;
 
 public class main_dashboard extends javax.swing.JFrame {
 
-    
-    public main_dashboard()throws Exception {
+    public static int id;
+    public main_dashboard(int id)throws Exception {
         initComponents();
         EventMenu event;
+        this.id=id;
+        System.out.println(this.id);
         event = new EventMenu() {
             @Override
             public void selected(int index) throws Exception {
@@ -41,7 +43,7 @@ public class main_dashboard extends javax.swing.JFrame {
                         showForm(new quartier_form());
                         break;
                     case 3:
-                        showForm(new Ligne_form());
+                        showForm(new Ligne_form(main_dashboard.id));
                         break;
                     case 4:
                         showForm(new Abonnement_form());
@@ -50,7 +52,7 @@ public class main_dashboard extends javax.swing.JFrame {
                         showForm(new Parameter_form());
                         break;
                     case 6:
-                        showForm(new user_form());
+                        showForm(new user_form(main_dashboard.id));
                         
                         break;
                     case 8:
@@ -144,7 +146,7 @@ public class main_dashboard extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new main_dashboard().setVisible(true);
+                    new main_dashboard(-1).setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(main_dashboard.class.getName()).log(Level.SEVERE, null, ex);
                 }

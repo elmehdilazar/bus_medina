@@ -35,7 +35,7 @@ private  Connection c;
         sb.setForeground(new Color(51, 51, 51, 100));
         tableAdmin.fixTable(jScrollPane1);
             try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
+           Class.forName("com.mysql.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         java.sql.ResultSet ab;
             try {
