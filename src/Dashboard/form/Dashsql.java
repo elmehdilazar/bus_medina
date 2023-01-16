@@ -16,7 +16,7 @@ public  class Dashsql {
     
     public static Connection connection() throws Exception{
         Connection c;
-        Class.forName("com.mysql.cj.jdbc.Driver");
+   Class.forName("com.mysql.jdbc.Driver");
         c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus", "root", "");
         
         return c;
