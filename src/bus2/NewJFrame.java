@@ -4,9 +4,10 @@
  */
 package bus2;
 
-import Dashboard.form.Admin;
+
 import bus2.message.GlassPanePopup;
 import bus2.message.message;
+import bus2.sqlFun.Admin;
 
 import java.sql.*;
 import java.util.logging.Level;
