@@ -22,20 +22,18 @@ private Connection c;
      */
     public demande() throws Exception {
         initComponents();
+        
         roundPanel1.setBackground(new Color(0,0,0,128));
         try{
 
           Connection c = Dashsql.connection();
-
-            Class.forName("com.mysql.jdbc.Driver");
-    c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
 
         java.sql.ResultSet ab;
             try {
                 ab = Admin.affiche_abonement(c);  
                 while(ab.next()){
             
-                    comboBoxSuggestion1.addItem(ab.getString(4)+"-"+ab.getString(1));
+                    type_abonne.addItem(ab.getString(4)+"-"+ab.getString(1));
                    
         } 
             } catch (Exception ex) {
@@ -83,7 +81,7 @@ private Connection c;
         jLabel5 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        comboBoxSuggestion1 = new bus2.combobox.ComboBoxSuggestion();
+        type_abonne = new bus2.combobox.ComboBoxSuggestion();
         tele = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -210,7 +208,7 @@ private Connection c;
         jLabel17.setText("abonnement");
         roundPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
 
-        roundPanel1.add(comboBoxSuggestion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, -1));
+        roundPanel1.add(type_abonne, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, -1));
 
         tele.setBackground(new Color(0,0,0,0));
         tele.setForeground(new java.awt.Color(255, 224, 25));
@@ -242,8 +240,8 @@ private Connection c;
         String emailA=email.getText();
         LocalDate date=LocalDate.now();
         String tel=tele.getText();
-        int selectedIndex = comboBoxSuggestion1.getSelectedIndex();
-        String[] id_ab=((String)comboBoxSuggestion1.getItemAt(selectedIndex)).split("-",2);
+        int selectedIndex = type_abonne.getSelectedIndex();
+        String[] id_ab=((String)type_abonne.getItemAt(selectedIndex)).split("-",2);
         System.out.println();
     try {
         Admin.ajouter_personne(c, cinA, date, Integer.parseInt(tel), addressA, nomA, prenomA, emailA,Integer.parseInt(id_ab[1]));
@@ -259,7 +257,6 @@ private Connection c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adresse;
     private javax.swing.JTextField cin;
-    private bus2.combobox.ComboBoxSuggestion comboBoxSuggestion1;
     private javax.swing.JTextField date_naissance;
     private javax.swing.JTextField email;
     private Dashboard.component.jBtn jBtn1;
@@ -284,5 +281,6 @@ private Connection c;
     private javax.swing.JTextField prenom;
     private Dashboard.swing.RoundPanel roundPanel1;
     private javax.swing.JTextField tele;
+    private bus2.combobox.ComboBoxSuggestion type_abonne;
     // End of variables declaration//GEN-END:variables
 }
