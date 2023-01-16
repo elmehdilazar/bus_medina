@@ -24,7 +24,7 @@ public class Ligne_form extends javax.swing.JPanel{
     }
     
     public void updatetab() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select * from ligne";
          PreparedStatement st = c.prepareStatement(sql);
          
@@ -43,9 +43,8 @@ public class Ligne_form extends javax.swing.JPanel{
                    columnData.add(rs.getString("destination"));
                }
                RecordTable.addRow(columnData);
-                
-                     
-                     }
+              
+         }
          
         
     }
@@ -304,10 +303,10 @@ public class Ligne_form extends javax.swing.JPanel{
         String ori = origine.getText();
         String des = destination.getText();
         String tar = tarif.getText();
-        if(!id.isEmpty() && !ori.isEmpty() && des.isEmpty() && tar.isEmpty()){
+        if(!id.isEmpty() && !ori.isEmpty() && !des.isEmpty() && !tar.isEmpty()){
             try{
-             Connection c = Admin.connection();
-             Admin.ajouter_ligne(c, id, ori, des, tar);
+             Connection c = Dashsql.connection();
+             Dashsql.ajouter_ligne(c, id, ori, des, tar);
             JOptionPane.showMessageDialog(null, "ligne "+id_ligne.getText()+" est enregistrer");
             updatetab();
             id_ligne.setText("");
@@ -320,7 +319,7 @@ public class Ligne_form extends javax.swing.JPanel{
         }
         
         }else{
-            JOptionPane.showMessageDialog(null, "remplire tous les champs");
+            JOptionPane.showMessageDialog(null, "remplir tous les champs");
         }
         
         
@@ -353,7 +352,7 @@ public class Ligne_form extends javax.swing.JPanel{
         String des = destination.getText();
         if(!id.isEmpty() && !tar.isEmpty() && !dep.isEmpty() && !des.isEmpty()){
             try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              String sql = "update ligne set origine='"+dep+"' , destination='"+des+"', tarif='"+tar+"' where id_ligne = "+id+";";
               Statement requete = c.createStatement();
               int R = requete.executeUpdate(sql);
@@ -382,7 +381,7 @@ public class Ligne_form extends javax.swing.JPanel{
         String des = destination.getText();
          if(!id.isEmpty() && !tar.isEmpty() && !dep.isEmpty() && !des.isEmpty()){
              try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              String sql = "delete from ligne where id_ligne = "+id+";";
               Statement requete = c.createStatement();
               int R = requete.executeUpdate(sql);

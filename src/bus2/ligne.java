@@ -1,20 +1,51 @@
 /*
+dj
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package bus2.client;
+package bus2;
+
+import Dashboard.swing.scrollbar.ScrollBarCustom;
+import java.awt.Color;
+import bus2.sqlFun.*;
+import java.io.EOFException;
+import java.sql.*;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author mehdi
  */
 public class ligne extends javax.swing.JPanel {
-
+private  Connection c;
     /**
      * Creates new form ligne
      */
     public ligne() {
         initComponents();
+        tableAdmin.setBackground(new Color(255,233,244,10));
+        setOpaque(false);
+        ScrollBarCustom sb = new ScrollBarCustom();
+        sb.setForeground(new Color(51, 51, 51, 100));
+        tableAdmin.fixTable(jScrollPane1);
+         try{
+           Class.forName("com.mysql.jdbc.Driver");
+    c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
+        java.sql.ResultSet ab;
+            try {
+           updatetab(null) ;
+            } catch (Exception ex) {
+                Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -28,16 +59,17 @@ public class ligne extends javax.swing.JPanel {
 
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableDark1 = new Dashboard.form.TableDark();
-        jBtn1 = new Dashboard.component.jBtn();
-        textField1 = new Dashboard.component.TextField();
-        jLabel1 = new javax.swing.JLabel();
+        tableAdmin = new Dashboard.form.TableDark();
+        val = new Dashboard.component.TextField();
 
+        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        roundPanel1.setBackground(new Color(0,0,0,128));
+        roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
+        tableAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -45,41 +77,83 @@ public class ligne extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id_ligne", "origine", "destination", "nombre du station"
             }
         ));
-        jScrollPane1.setViewportView(tableDark1);
+        tableAdmin.setGridColor(new Color(0,0,0,0));
+        jScrollPane1.setViewportView(tableAdmin);
 
         roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 855, 326));
 
-        jBtn1.setText("rechercher");
-        jBtn1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBtn1ActionPerformed(evt);
+        val.setText("rechercher...");
+        val.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                valCaretUpdate(evt);
             }
         });
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 12, 140, 40));
+        val.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valActionPerformed(evt);
+            }
+        });
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, 40));
 
-        textField1.setText("rechercher...");
-        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 11, 220, 40));
-
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 900, 420));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 460));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 900, 420));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtn1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBtn1ActionPerformed
+    private void valCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_valCaretUpdate
+    try {
+        updatetab(val.getText());
+    } catch (Exception ex) {
+        Logger.getLogger(ligne.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_valCaretUpdate
 
+    private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valActionPerformed
+public void updatetab(String val) throws Exception{
+   Connection c = this.c; 
+                    String sql;
+ 
+    if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..." ){ 
+    sql= "SELECT l.*,COUNT(s.id_ligne) as total FROM `ligne` l left JOIN stations s on l.id_ligne=s.id_ligne GROUP by s.id_ligne;";
+  
+   }else{
+        sql= "SELECT l.*,COUNT(s.id_ligne) as total FROM `ligne` l inner JOIN "
+             + "stations s on l.id_ligne=s.id_ligne  where l.id_ligne="+val
+             +"  GROUP by s.id_ligne";
+     }
+ 
+   
+
+         PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+         
+         ResultSet rs = st.executeQuery();
+         ResultSetMetaData rsData = rs.getMetaData();
+         int q = rsData.getColumnCount();
+         
+         DefaultTableModel RecordTable = (DefaultTableModel) tableAdmin.getModel();
+         RecordTable.setRowCount(0);
+         while(rs.next()){
+             
+             Vector columnData = new Vector();
+               for(int i = 1;i<= q;i++){
+                   columnData.add(rs.getString("id_ligne"));
+                
+                   columnData.add(rs.getString("origine"));
+                   columnData.add(rs.getString("destination"));
+                   columnData.add(rs.getString("total"));
+               }
+               RecordTable.addRow(columnData);    
+       }
+       
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Dashboard.component.jBtn jBtn1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.form.TableDark tableDark1;
-    private Dashboard.component.TextField textField1;
+    private Dashboard.form.TableDark tableAdmin;
+    private Dashboard.component.TextField val;
     // End of variables declaration//GEN-END:variables
 }

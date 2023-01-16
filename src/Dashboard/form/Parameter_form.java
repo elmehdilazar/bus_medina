@@ -35,7 +35,7 @@ public class Parameter_form extends javax.swing.JPanel {
     
     
     public void updatetab() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select * from admin";
          PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
          
@@ -242,8 +242,8 @@ public class Parameter_form extends javax.swing.JPanel {
         String pass = pass_admin.getText();
         if(!id.isEmpty() && !nom.isEmpty() && !pre.isEmpty() && !user.isEmpty() && !pass.isEmpty()){
             try{
-             Connection c = Admin.connection();
-             Admin.ajouterAdmin(c, id, nom,pre,user,pass);
+             Connection c = Dashsql.connection();
+             Dashsql.ajouterAdmin(c, id, nom,pre,user,pass);
              JOptionPane.showMessageDialog(null, "L'admin "+nom+" est enregistrer");
             updatetab();
             id_admin.setText("");

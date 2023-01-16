@@ -25,7 +25,7 @@ public class Main_form extends javax.swing.JPanel {
         updatetab();
     }
     public void updatetab() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select * from personne";
          PreparedStatement st = c.prepareStatement(sql);
          
@@ -55,7 +55,7 @@ public class Main_form extends javax.swing.JPanel {
     public void showPersonne() {
         try {
             // Connect to the database and create a Statement object
-            Connection c = Admin.connection();
+            Connection c = Dashsql.connection();
             Statement st = c.createStatement();
             // Execute the query and retrieve the results
             ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM personne");
@@ -77,7 +77,7 @@ public class Main_form extends javax.swing.JPanel {
     public void showStations() {
         try {
             // Connect to the database and create a Statement object
-            Connection c = Admin.connection();
+            Connection c = Dashsql.connection();
             Statement st = c.createStatement();
             // Execute the query and retrieve the results
             ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM stations");
@@ -99,7 +99,7 @@ public class Main_form extends javax.swing.JPanel {
     public void showLigne() {
         try {
             // Connect to the database and create a Statement object
-            Connection c = Admin.connection();
+            Connection c = Dashsql.connection();
             Statement st = c.createStatement();
             // Execute the query and retrieve the results
             ResultSet rs = st.executeQuery("SELECT COUNT(*) FROM ligne");

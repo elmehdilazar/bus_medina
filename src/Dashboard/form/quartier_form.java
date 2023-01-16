@@ -36,7 +36,7 @@ public class quartier_form extends javax.swing.JPanel {
         save_btn.setVisible(true);
     }
      public void updatetab() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select * from quartier";
          PreparedStatement st = c.prepareStatement(sql);
          
@@ -61,7 +61,7 @@ public class quartier_form extends javax.swing.JPanel {
     
     }
      public void updatecombo() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select nom_station from stations";
          PreparedStatement stmt=c.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE);
          
@@ -295,7 +295,7 @@ public class quartier_form extends javax.swing.JPanel {
         String nomquar = nom_quartier.getText();
         if(!id.isEmpty() && !nomquar.isEmpty()){
             try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              Statement stt = c.createStatement();
              ResultSet rs3 = stt.executeQuery("select idstations from stations where nom_station like '"+station_box.getSelectedItem().toString()+"';");
              String S = "";
@@ -303,7 +303,7 @@ public class quartier_form extends javax.swing.JPanel {
                    S = rs3.getString("idstations");
                }
              
-             Admin.ajouter_quartier(c, id, nomquar,S);
+             Dashsql.ajouter_quartier(c, id, nomquar,S);
             JOptionPane.showMessageDialog(null, "quartier "+idQuartier.getText()+" est enregistrer");
             updatetab();
             idQuartier.setText("");
@@ -314,7 +314,7 @@ public class quartier_form extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
         }else{
-            JOptionPane.showMessageDialog(null, "remplire tous les champs");
+            JOptionPane.showMessageDialog(null, "remplir tous les champs");
         }
          
         
@@ -352,8 +352,8 @@ public class quartier_form extends javax.swing.JPanel {
         String nomquar = nom_quartier.getText();
         if(!nomquar.isEmpty()){
             try{
-             Connection c = Admin.connection();
-             Connection c1 = Admin.connection();
+             Connection c = Dashsql.connection();
+             Connection c1 = Dashsql.connection();
              Statement st1 = c1.createStatement();
              ResultSet rs3 = st1.executeQuery("select idstations from stations where nom_station like '"+station_box.getSelectedItem().toString()+"';");
              String S = "";
@@ -386,7 +386,7 @@ public class quartier_form extends javax.swing.JPanel {
         String nomquar = nom_quartier.getText();
          if(!id.isEmpty() && !nomquar.isEmpty()){
              try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              String sql = "delete from quartier where idQuartier = "+id+";";
               Statement requete = c.createStatement();
               int R = requete.executeUpdate(sql);

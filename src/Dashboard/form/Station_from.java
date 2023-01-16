@@ -15,7 +15,6 @@ import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author BRAVO
@@ -49,7 +48,7 @@ public class Station_from extends javax.swing.JPanel {
     }
      
     public void updatetab() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select * from stations";
          PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
          
@@ -72,7 +71,7 @@ public class Station_from extends javax.swing.JPanel {
        
     }
     public void updatecombo() throws Exception{
-         Connection c = Admin.connection();
+         Connection c = Dashsql.connection();
          String sql = "select id_ligne from ligne";
          PreparedStatement stmt=c.prepareStatement(sql,ResultSet.TYPE_SCROLL_SENSITIVE);
          
@@ -330,8 +329,8 @@ public class Station_from extends javax.swing.JPanel {
           String nomstat = nom_station.getText();
         if(!id.isEmpty() && !nomstat.isEmpty()){
             try{
-             Connection c = Admin.connection();
-             Admin.ajout_station(c, idstations.getText(), nom_station.getText(),ligne_box.getSelectedItem().toString());
+             Connection c = Dashsql.connection();
+             Dashsql.ajout_station(c, idstations.getText(), nom_station.getText(),ligne_box.getSelectedItem().toString());
              JOptionPane.showMessageDialog(null, "station "+idstations.getText()+" est enregistrer");
             updatetab();
             idstations	.setText("");
@@ -345,7 +344,7 @@ public class Station_from extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
         }else{
-            JOptionPane.showMessageDialog(null, "remplire tous les champs");
+            JOptionPane.showMessageDialog(null, "remplir tous les champs");
         }
         
             
@@ -387,7 +386,7 @@ public class Station_from extends javax.swing.JPanel {
         String nomstat = nom_station.getText();
         if(!nomstat.isEmpty()){
             try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              String sql = "update stations set nom_station='"+nomstat+"',id_ligne="+ligne_box.getSelectedItem().toString()+" where idstations = "+id+";";
               Statement requete = c.createStatement();
               int R = requete.executeUpdate(sql);
@@ -404,7 +403,7 @@ public class Station_from extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, e);
         }
         }else{
-            JOptionPane.showMessageDialog(null, "remplire tous les champs");
+            JOptionPane.showMessageDialog(null, "remplir tous les champs");
         }
     }//GEN-LAST:event_update_btnActionPerformed
 
@@ -413,7 +412,7 @@ public class Station_from extends javax.swing.JPanel {
         String nomstat = nom_station.getText();
         if(!nomstat.isEmpty() && !nomstat.isEmpty()){
             try{
-             Connection c = Admin.connection();
+             Connection c = Dashsql.connection();
              String sql = "delete from stations where idstations = "+id+";";
               Statement requete = c.createStatement();
               int R = requete.executeUpdate(sql);

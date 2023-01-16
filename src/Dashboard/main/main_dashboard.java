@@ -10,7 +10,7 @@ import Dashboard.form.Main_form;
 import Dashboard.form.Parameter_form;
 import Dashboard.form.Station_from;
 import Dashboard.form.user_form;
-import bus2.NewJFrame;
+
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
@@ -55,7 +55,7 @@ public class main_dashboard extends javax.swing.JFrame {
                     case 8:
                         System.out.println("Logout");
                        dispose();
-                       bus2.NewJFrame newFrame = new bus2.NewJFrame();
+                       bus2.client newFrame = new bus2.client();
                        newFrame.setVisible(true); 
                         break;
                     default:
