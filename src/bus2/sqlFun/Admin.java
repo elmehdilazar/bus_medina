@@ -22,7 +22,7 @@ public class Admin {
             exe.setString(3, login);
             exe.setString(4, password);
             exe.executeUpdate();   
-           ;
+           
    }
    public void deleteAdmin(int id,Connection c) throws SQLException{
        
