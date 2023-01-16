@@ -26,7 +26,7 @@ private Connection c;
         initComponents();
         roundPanel1.setBackground(new Color(0,0,0,128));
         try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         java.sql.ResultSet ab;
             try {

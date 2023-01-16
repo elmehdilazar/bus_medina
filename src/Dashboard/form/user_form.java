@@ -13,7 +13,10 @@ public class user_form extends javax.swing.JPanel {
     /**
      * Creates new form user_form
      */
-    public user_form() {
+     private  int id;
+    public user_form(int id) {
+        this.id=id;
+         System.out.println(this.id);
         initComponents();
     }
 

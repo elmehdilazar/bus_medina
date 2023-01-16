@@ -13,9 +13,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class Ligne_form extends javax.swing.JPanel{
 
-
-    public Ligne_form() throws Exception {
+private int id;
+    public Ligne_form(int id) throws Exception {
         initComponents();
+        this.id=id;
+        System.out.println(this.id);
         ScrollBarCustom sb = new ScrollBarCustom();
         sb.setForeground(new Color(51, 51, 51, 100));
         Ligne.fixTable(jScrollPane1);

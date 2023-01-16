@@ -5,6 +5,7 @@ hih
  */
 package bus2;
 
+import Dashboard.swing.scrollbar.ScrollBarCustom;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -28,6 +29,11 @@ private  Connection c;
      */
     public tarif_par_ligne() {
         initComponents();
+         tableAdmin.setBackground(new Color(255,233,244,10));
+        setOpaque(false);
+        ScrollBarCustom sb = new ScrollBarCustom();
+        sb.setForeground(new Color(51, 51, 51, 100));
+        tableAdmin.fixTable(jScrollPane1);
           try{
            Class.forName("com.mysql.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
@@ -69,10 +75,9 @@ private  Connection c;
              Vector columnData = new Vector();
                for(int i = 1;i<= q;i++){
                    columnData.add(rs.getString("id_ligne"));
-                
                    columnData.add(rs.getString("origine"));
                    columnData.add(rs.getString("destination"));
-                     columnData.add(rs.getString("tarif"));
+                   columnData.add(rs.getString("tarif"));
                }
                RecordTable.addRow(columnData);    
        }
@@ -113,9 +118,9 @@ private  Connection c;
         ));
         jScrollPane1.setViewportView(tableAdmin);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 890, 310));
 
-        val.setText("rechercher...");
+        val.setText("recherche...");
         val.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 valCaretUpdate(evt);
@@ -126,9 +131,9 @@ private  Connection c;
                 valActionPerformed(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, 40));
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 190, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1030, 410));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 990, 430));
     }// </editor-fold>//GEN-END:initComponents
 
     private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed

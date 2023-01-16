@@ -9,7 +9,7 @@ import Dashboard.form.Dashsql;
 import bus2.message.GlassPanePopup;
 import bus2.message.message;
 import bus2.sqlFun.Admin;
-
+import Dashboard.main.main_dashboard;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -232,16 +232,17 @@ public class Login extends javax.swing.JFrame {
         
         String username=txtusername.getText();
         String password=txtpassword.getText();
-       
+       int id;
+   
         try {
-           if( Admin.admin_connection(c, username, password)>=1){
+           if((id= Admin.admin_connection(c, username, password))>=1){
                 System.out.println("ok");
                
                 
                 
                 
                 dispose();
-                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard(username);
+                main_dashboard dash = new main_dashboard(id);
                 dash.setVisible(true); 
            }else{
                GlassPanePopup.showPopup(new message());
