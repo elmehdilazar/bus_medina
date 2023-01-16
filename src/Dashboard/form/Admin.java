@@ -44,13 +44,15 @@ stmt.executeUpdate();
   
  
     
-    static void admin_connection(Connection c, String login,String pass) throws SQLException{
-        Statement stament= c.createStatement();
+   public static int admin_connection(Connection c, String login,String pass) throws SQLException{
+           Statement stament= c.createStatement();
+        int id=-1;
             ResultSet resultat= stament.executeQuery("SELECT * FROM admin WHERE login_admin like '"+login+"' and pass_admin like '"+pass+"' ");  
          while(resultat.next()){
-                System.out.println(resultat.getInt(1));
+            id=  resultat.getInt(1);
                 
             }
+         return id;
     }
     
         
