@@ -18,24 +18,24 @@ import java.util.logging.Logger;
  *nfj
  * @author mehdi
  */
-public class Login extends javax.swing.JFrame {
+public class NewJFrame extends javax.swing.JFrame {
     private  Connection c;
 
     /**
      * Creates new form NewJFrame
      */
-    public Login() {
+    public NewJFrame() {
         initComponents();
         GlassPanePopup.install(this);
         try {
         Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
               txtusername.setBackground(new java.awt.Color(0,0,0,1));
          txtpassword.setBackground(new java.awt.Color(0,0,0,1));
@@ -124,6 +124,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setText("mot de pass");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 216, 328, -1));
 
+        txtusername.setBackground(new java.awt.Color(255, 255, 255));
         txtusername.setFont(txtusername.getFont().deriveFont(txtusername.getFont().getSize()+2f));
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
         txtusername.setBorder(null);
@@ -151,6 +152,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setText("nom d'utilisateur");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 140, 328, -1));
 
+        txtpassword.setBackground(new java.awt.Color(255, 255, 255));
         txtpassword.setFont(txtpassword.getFont().deriveFont(txtpassword.getFont().getSize()+2f));
         txtpassword.setForeground(new java.awt.Color(255, 255, 255));
         txtpassword.setBorder(null);
@@ -169,6 +171,7 @@ public class Login extends javax.swing.JFrame {
         jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 286, 245, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 224, 25));
         jButton1.setText("se connecter");
@@ -235,16 +238,11 @@ public class Login extends javax.swing.JFrame {
         try {
            if( Admin.admin_connection(c, username, password)>=1){
                 System.out.println("ok");
-                dispose();
-                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard();
-                dash.setVisible(true); 
            }else{
                GlassPanePopup.showPopup(new message());
            }
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (Exception ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -298,21 +296,20 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new NewJFrame().setVisible(true);
             }
         });
     }

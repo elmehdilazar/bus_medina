@@ -28,7 +28,7 @@ public class jBtn extends JButton{
             this.style = style;
             animationHover.stop();
             animationPress.stop();
-           // currentStyle.changeStyle(style);
+            currentStyle.changeStyle(style);
             setForeground(style.foreground);
         }
     }
@@ -51,7 +51,6 @@ public class jBtn extends JButton{
         setContentAreaFilled(false);
         setBorder(new EmptyBorder(8,8,8,8));
         setForeground(new Color(21,21,21));
-       
     
     initAnimation();
         addMouseListener(new MouseAdapter() {
@@ -77,7 +76,7 @@ public class jBtn extends JButton{
         });
     }
 
-   private void initAnimation() {
+    private void initAnimation() {
         animationHover = new AnimationStyle(300, currentStyle, "backgroundHover");
         animationHover.addTarget(new TimingTargetAdapter() {
             @Override
@@ -120,7 +119,7 @@ public class jBtn extends JButton{
      public enum ButtonStyle{
         
         PRIMARY(new Color(255,209,0),new Color(21,21,21),new Color(21,21,21),new Color(255,209,0)),
-        SECONDARY(new Color(255,255,255),new Color(21,21,21),new Color(21,21,21),new Color(255,209,0)),
+        SECONDARY(new Color(255,209,0),new Color(21,21,21),new Color(21,21,21),new Color(255,209,0)),
         DESTRUCTIVE(new Color(255,209,0),new Color(21,21,21),new Color(21,21,21),new Color(255,209,0));
         
         private ButtonStyle(Color Background,Color foreground,Color BackgroundHover,Color BackgroundPress){
