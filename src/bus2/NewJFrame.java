@@ -4,6 +4,8 @@
  */
 package bus2;
 
+import bus2.message.GlassPanePopup;
+import bus2.message.message;
 import bus2.sqlFun.Admin;
 import java.sql.*;
 import java.util.logging.Level;
@@ -22,6 +24,7 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        GlassPanePopup.install(this);
         try {
         Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -231,7 +234,11 @@ public class NewJFrame extends javax.swing.JFrame {
         String password=txtpassword.getText();
        
         try {
-            Admin.admin_connection(c, username, password);
+           if( Admin.admin_connection(c, username, password)>=1){
+                System.out.println("ok");
+           }else{
+               GlassPanePopup.showPopup(new message());
+           }
         } catch (SQLException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
