@@ -50,7 +50,7 @@ stmt.executeUpdate();
     
         
     
-    // *************Partie ligne************************
+    // *************Partie ligne**********************
     
     //afichage de ligne
        static void affiche_ligne(Connection c) throws Exception{
