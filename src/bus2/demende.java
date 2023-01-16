@@ -106,7 +106,7 @@ private Connection c;
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 22)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 224, 25));
         jLabel7.setText("votre carte");
-        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 110, -1));
+        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 110, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 224, 25));
         jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 22)); // NOI18N
