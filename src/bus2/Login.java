@@ -5,6 +5,7 @@
 package bus2;
 
 
+import Dashboard.form.Dashsql;
 import bus2.message.GlassPanePopup;
 import bus2.message.message;
 import bus2.sqlFun.Admin;
@@ -235,8 +236,12 @@ public class Login extends javax.swing.JFrame {
         try {
            if( Admin.admin_connection(c, username, password)>=1){
                 System.out.println("ok");
+               
+                
+                
+                
                 dispose();
-                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard();
+                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard(username);
                 dash.setVisible(true); 
            }else{
                GlassPanePopup.showPopup(new message());

@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
 
 public class main_dashboard extends javax.swing.JFrame {
 
+    
     public main_dashboard()throws Exception {
         initComponents();
         EventMenu event;
