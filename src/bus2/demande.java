@@ -1,4 +1,4 @@
-package bus2.client;
+package bus2;
 
 import java.awt.Color;
 
