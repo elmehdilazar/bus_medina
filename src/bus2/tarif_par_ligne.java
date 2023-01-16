@@ -1,81 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package bus2;
 
-import java.awt.Color;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author mehdi
- */
 public class tarif_par_ligne extends javax.swing.JPanel {
-private  Connection c;
+
     /**
      * Creates new form tarif_par_ligne
      */
     public tarif_par_ligne() {
         initComponents();
-          try{
-           Class.forName("com.mysql.jdbc.Driver");
-    c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
-        java.sql.ResultSet ab;
-            try {
-              updatetab(null) ;
-            } catch (Exception ex) {
-                Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
-            }
-       
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(demende.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
-    }
-    public void updatetab(String val) throws Exception{
-         Connection c = this.c;
-         String sql = "select * from ligne";
-         
-         if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..."){
-              sql = "select * from ligne";
-         }else{
-             sql = "select * from ligne where id_ligne="+val;
-         }
-         
-         
-         PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-         
-         ResultSet rs = st.executeQuery();
-         ResultSetMetaData rsData = rs.getMetaData();
-         int q = rsData.getColumnCount();
-         
-         DefaultTableModel RecordTable = (DefaultTableModel) tableAdmin.getModel();
-         RecordTable.setRowCount(0);
-         while(rs.next()){
-             
-             Vector columnData = new Vector();
-               for(int i = 1;i<= q;i++){
-                   columnData.add(rs.getString("id_ligne"));
-                
-                   columnData.add(rs.getString("origine"));
-                   columnData.add(rs.getString("destination"));
-                     columnData.add(rs.getString("tarif"));
-               }
-               RecordTable.addRow(columnData);    
-       }
-       
     }
 
     /**
@@ -89,17 +21,16 @@ private  Connection c;
 
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableAdmin = new Dashboard.form.TableDark();
-        val = new Dashboard.component.TextField();
+        tableDark1 = new Dashboard.form.TableDark();
+        textField1 = new Dashboard.component.TextField();
+        jBtn1 = new Dashboard.component.jBtn();
+        jLabel1 = new javax.swing.JLabel();
 
-        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        roundPanel1.setBackground(new Color(0,0,0,128));
-        roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tableAdmin.setModel(new javax.swing.table.DefaultTableModel(
+        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -107,47 +38,41 @@ private  Connection c;
                 {null, null, null, null}
             },
             new String [] {
-                "num ligne", "origine", "destination", "tarif"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableAdmin);
+        jScrollPane1.setViewportView(tableDark1);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 940, 310));
 
-        val.setText("rechercher...");
-        val.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                valCaretUpdate(evt);
-            }
-        });
-        val.addActionListener(new java.awt.event.ActionListener() {
+        textField1.setText("recherche...");
+        textField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valActionPerformed(evt);
+                textField1ActionPerformed(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, 40));
+        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 190, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1030, 410));
+        jBtn1.setText("recherchez");
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 200, 40));
+
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1030, 430));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 470));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed
+    private void textField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_valActionPerformed
-
-    private void valCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_valCaretUpdate
-        // TODO add your handling code here:
-          try {
-        updatetab(val.getText());
-    } catch (Exception ex) {
-        Logger.getLogger(ligne.class.getName()).log(Level.SEVERE, null, ex);
-    }
-    }//GEN-LAST:event_valCaretUpdate
+    }//GEN-LAST:event_textField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Dashboard.component.jBtn jBtn1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.form.TableDark tableAdmin;
-    private Dashboard.component.TextField val;
+    private Dashboard.form.TableDark tableDark1;
+    private Dashboard.component.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }

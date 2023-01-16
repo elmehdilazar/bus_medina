@@ -3,24 +3,32 @@ package Dashboard.main;
 
 import Dashboard.event.EventMenu;
 import Dashboard.form.Abonnement_form;
-import Dashboard.form.Cartier_form;
+import Dashboard.form.quartier_form;
 import Dashboard.form.Form;
 import Dashboard.form.Ligne_form;
 import Dashboard.form.Main_form;
 import Dashboard.form.Parameter_form;
 import Dashboard.form.Station_from;
+import Dashboard.form.user_form;
+import bus2.NewJFrame;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 
 
 public class main_dashboard extends javax.swing.JFrame {
 
-    public main_dashboard() {
+    public main_dashboard()throws Exception {
         initComponents();
-        EventMenu event = new EventMenu() {
+        EventMenu event;
+        event = new EventMenu() {
             @Override
-            public void selected(int index) {
+            public void selected(int index) throws Exception {
+                
                 switch (index) {
                     case 0:
                         showForm(new Main_form());
@@ -29,7 +37,7 @@ public class main_dashboard extends javax.swing.JFrame {
                         showForm(new Station_from());
                         break;
                     case 2:
-                        showForm(new Cartier_form());
+                        showForm(new quartier_form());
                         break;
                     case 3:
                         showForm(new Ligne_form());
@@ -40,8 +48,15 @@ public class main_dashboard extends javax.swing.JFrame {
                     case 5:
                         showForm(new Parameter_form());
                         break;
+                    case 6:
+                        showForm(new user_form());
+                        
+                        break;
                     case 8:
                         System.out.println("Logout");
+                       dispose();
+                       bus2.NewJFrame newFrame = new bus2.NewJFrame();
+                       newFrame.setVisible(true); 
                         break;
                     default:
                         showForm(new Form(index));
@@ -53,13 +68,16 @@ public class main_dashboard extends javax.swing.JFrame {
         simpleTitleBar1.init(this);
         showForm(new Main_form());
     }
+    
     private void showForm(Component com) {
         jPanel1.removeAll();
         jPanel1.add(com);
         jPanel1.revalidate();
         jPanel1.repaint();
     }
-
+    private void closefrmae(){
+        dispose();
+    }
   
     @SuppressWarnings("checked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -124,7 +142,11 @@ public class main_dashboard extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new main_dashboard().setVisible(true);
+                try {
+                    new main_dashboard().setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(main_dashboard.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
