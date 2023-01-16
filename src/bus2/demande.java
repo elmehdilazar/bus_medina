@@ -5,6 +5,7 @@
 package bus2;
 
 
+import Dashboard.form.Dashsql;
 import java.awt.Color;
 import bus2.sqlFun.*;
 import java.io.EOFException;
@@ -13,21 +14,17 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- hh
- * @author mehdi
- */
+
 public class demande extends javax.swing.JPanel {
 private Connection c;
     /**
-     * Creates new form demende
+     * Creates new form demande
      */
-    public demande() {
+    public demande() throws Exception {
         initComponents();
         roundPanel1.setBackground(new Color(0,0,0,128));
         try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
-    c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
+          Connection c = Dashsql.connection();
         java.sql.ResultSet ab;
             try {
                 ab = Admin.affiche_abonement(c);  

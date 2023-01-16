@@ -90,7 +90,7 @@ private EventMenu event;
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MEHDI\\Desktop\\Logo-casabus (2).png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/Logo-casabus (2).png"))); // NOI18N
 
         javax.swing.GroupLayout logo_containerLayout = new javax.swing.GroupLayout(logo_container);
         logo_container.setLayout(logo_containerLayout);
@@ -108,8 +108,6 @@ private EventMenu event;
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("");
 
         leftside.setBackground(new java.awt.Color(51, 51, 51));
 

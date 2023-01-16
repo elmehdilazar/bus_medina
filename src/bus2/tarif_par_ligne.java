@@ -62,7 +62,7 @@ private  Connection c;
          ResultSetMetaData rsData = rs.getMetaData();
          int q = rsData.getColumnCount();
          
-         DefaultTableModel RecordTable = (DefaultTableModel) tableAdmin.getModel();
+         DefaultTableModel RecordTable = (DefaultTableModel) tableDark1.getModel();
          RecordTable.setRowCount(0);
          while(rs.next()){
              
@@ -90,17 +90,16 @@ private  Connection c;
 
         roundPanel1 = new Dashboard.swing.RoundPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableAdmin = new Dashboard.form.TableDark();
-        val = new Dashboard.component.TextField();
+        tableDark1 = new Dashboard.form.TableDark();
+        textField1 = new Dashboard.component.TextField();
+        jBtn1 = new Dashboard.component.jBtn();
+        jLabel1 = new javax.swing.JLabel();
 
-        setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        roundPanel1.setBackground(new Color(0,0,0,128));
-        roundPanel1.setOpaque(true);
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tableAdmin.setModel(new javax.swing.table.DefaultTableModel(
+        tableDark1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -108,27 +107,28 @@ private  Connection c;
                 {null, null, null, null}
             },
             new String [] {
-                "num ligne", "origine", "destination", "tarif"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tableAdmin);
+        jScrollPane1.setViewportView(tableDark1);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 940, 310));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 100, 940, 310));
 
-        val.setText("rechercher...");
-        val.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                valCaretUpdate(evt);
-            }
-        });
-        val.addActionListener(new java.awt.event.ActionListener() {
+        textField1.setText("recherche...");
+        textField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                valActionPerformed(evt);
+                textField1ActionPerformed(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 190, 40));
+        roundPanel1.add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 190, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1030, 410));
+        jBtn1.setText("recherchez");
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 40, 200, 40));
+
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1030, 430));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/mirroir.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed
@@ -146,9 +146,11 @@ private  Connection c;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Dashboard.component.jBtn jBtn1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
-    private Dashboard.form.TableDark tableAdmin;
-    private Dashboard.component.TextField val;
+    private Dashboard.form.TableDark tableDark1;
+    private Dashboard.component.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }

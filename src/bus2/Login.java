@@ -241,7 +241,7 @@ public class Login extends javax.swing.JFrame {
                 
                 
                 dispose();
-                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard(username);
+                Dashboard.main.main_dashboard dash = new Dashboard.main.main_dashboard();
                 dash.setVisible(true); 
            }else{
                GlassPanePopup.showPopup(new message());

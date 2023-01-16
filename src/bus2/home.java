@@ -8,6 +8,8 @@ package bus2;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -182,7 +184,11 @@ public class home extends javax.swing.JPanel {
 
     private void roundPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_roundPanel5MouseClicked
    
-       this.c.showForm(new demande());
+     try {
+         this.c.showForm(new demande());
+     } catch (Exception ex) {
+         Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+     }
 
     }//GEN-LAST:event_roundPanel5MouseClicked
 

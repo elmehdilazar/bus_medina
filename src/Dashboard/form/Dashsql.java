@@ -53,8 +53,6 @@ public static void ajouter_quartier(Connection c,String id_quartier,String nom_q
     
 }
 
-
-
 public static void ajout_station(Connection c,String id_station , String nom_station,String id_ligne) throws SQLException
 {
     PreparedStatement req = c.prepareStatement("INSERT INTO stations VALUES(?,?,?)");
@@ -65,15 +63,15 @@ public static void ajout_station(Connection c,String id_station , String nom_sta
      
 
 }
-public static void ajouter_abonne(Connection c,String id_abonnement,LocalDate date_debut,LocalDate date_fin,String type_abonnement,int id_ligne) throws SQLException{
-    PreparedStatement req = c.prepareStatement("INSERT INTO abonnement VALUES(?,?,?,?,?,?)");
+public static void ajouter_abonne(Connection c, String id_abonnement, String type_abonnement, String id_ligne) throws SQLException{
+    PreparedStatement req = c.prepareStatement("INSERT INTO abonnement VALUES(?,?,?)");
     req.setString(1, id_abonnement);  
-    req.setDate(2, Date.valueOf(date_debut)); 
-    req.setDate(3, Date.valueOf(date_fin));
-    req.setString(4, type_abonnement);
-    req.setInt(6, id_ligne);
+    req.setString(2, type_abonnement);
+    req.setString(3, id_ligne);
     req.executeUpdate();
 }
+
+    
 
   
 
