@@ -1,8 +1,4 @@
-/*
-hih
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+
 package bus2;
 
 import Dashboard.swing.scrollbar.ScrollBarCustom;
@@ -55,10 +51,10 @@ private  Connection c;
          Connection c = this.c;
          String sql = "select * from ligne";
          
-         if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..."){
-              sql = "select * from ligne";
-         }else{
+         if(val!=null || !val.isEmpty() || !val.trim().isEmpty() || val!="rechercher..."){
              sql = "select * from ligne where id_ligne="+val;
+         }else{
+             sql = "select * from ligne";
          }
          
          

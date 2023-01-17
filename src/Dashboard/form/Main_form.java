@@ -260,7 +260,7 @@ public class Main_form extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/dashboard.jpeg"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/news_1633170297.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

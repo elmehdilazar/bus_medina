@@ -1,9 +1,4 @@
-/*
-jf
-j
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this templat
- */
+
 
 package bus2;
 
@@ -18,6 +13,8 @@ import java.awt.Component;
 
 import java.awt.Color;
 import java.awt.PopupMenu;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -169,10 +166,14 @@ private static client cli;
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+    try {
         // TODO add your handling code here:
-             setVisible(false);
-             Login j=new Login();
-             j.show();
+        setVisible(false);
+        Login j=new Login();
+        j.show();
+    } catch (Exception ex) {
+        Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
+    }
              
     }//GEN-LAST:event_jLabel9MouseClicked
    public  void showForm(Component com) {
