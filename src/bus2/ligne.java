@@ -32,7 +32,7 @@ private  Connection c;
         sb.setForeground(new Color(51, 51, 51, 100));
         tableAdmin.fixTable(jScrollPane1);
          try{
-           Class.forName("com.mysql.jdbc.Driver");
+           Class.forName("com.mysql.cj.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         java.sql.ResultSet ab;
             try {
@@ -61,6 +61,8 @@ private  Connection c;
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAdmin = new Dashboard.form.TableDark();
         val = new Dashboard.component.TextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,9 +85,8 @@ private  Connection c;
         tableAdmin.setGridColor(new Color(0,0,0,0));
         jScrollPane1.setViewportView(tableAdmin);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 855, 326));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 855, 326));
 
-        val.setText("rechercher...");
         val.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 valCaretUpdate(evt);
@@ -96,9 +97,20 @@ private  Connection c;
                 valActionPerformed(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 220, 40));
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 220, 40));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 900, 420));
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("les lignes :");
+        roundPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 25, 110, 30));
+
+        jLabel7.setBackground(new java.awt.Color(255, 224, 25));
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 224, 25));
+        jLabel7.setText("recherchez :");
+        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 110, 50));
+
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 900, 430));
     }// </editor-fold>//GEN-END:initComponents
 
     private void valCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_valCaretUpdate
@@ -117,12 +129,17 @@ public void updatetab(String val) throws Exception{
                     String sql;
  
     if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..." ){ 
-    sql= "SELECT l.*,COUNT(s.id_ligne) as total FROM `ligne` l left JOIN stations s on l.id_ligne=s.id_ligne GROUP by s.id_ligne;";
+    sql= "SELECT l.*,COUNT(s.id_ligne) as total FROM `ligne` l left JOIN stations s on l.id_ligne=s.id_ligne GROUP by s.id_ligne"
+            + ";";
   
    }else{
         sql= "SELECT l.*,COUNT(s.id_ligne) as total FROM `ligne` l inner JOIN "
-             + "stations s on l.id_ligne=s.id_ligne  where l.id_ligne="+val
-             +"  GROUP by s.id_ligne";
+             + "stations s on l.id_ligne=s.id_ligne "
+                + " where l.id_ligne = '"+val.trim()+"'"
+                       + " OR l.tarif = '"+val.trim()+"'"
+                    + " OR l.origine like '%"+val.trim()+"%' "
+                    + " OR l.destination like '%"+val.trim()+"%' "
+             +" GROUP by s.id_ligne ";
      }
  
    
@@ -151,6 +168,8 @@ public void updatetab(String val) throws Exception{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableAdmin;

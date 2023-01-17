@@ -48,6 +48,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -75,6 +76,14 @@ public class Login extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-home-20.png"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/Bus Stop-amico.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 519, 454));
@@ -212,7 +221,7 @@ public class Login extends javax.swing.JFrame {
                  main_dashboard dash = new main_dashboard(id);
                  dash.setVisible(true); 
            }else{
-               GlassPanePopup.showPopup(new message());
+               GlassPanePopup.showPopup(new message("votre informations non valide !!!"));
            }
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -254,6 +263,18 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        // TODO add your handling code here:
+       try {
+        // TODO add your handling code here:
+        setVisible(false);
+        client j=new client();
+        j.show();
+    } catch (Exception ex) {
+        Logger.getLogger(client.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -294,6 +315,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel disabled;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

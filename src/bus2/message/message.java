@@ -14,15 +14,15 @@ import java.awt.geom.RoundRectangle2D;
  * @author mehdi
  */
 public class message extends javax.swing.JPanel {
-
+private String champ;
     /**
      * Creates new form message
      */
-    public message() {
+    public message(String champ) {
         initComponents();
         setOpaque(false);
-        System.out.println("");
-        
+      this.champ=champ;
+       this.msg.setText(champ);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class message extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        msg = new javax.swing.JLabel();
         button1 = new bus2.message.Button();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -55,11 +55,12 @@ public class message extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(524, 175));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("le mot de pass ou login incorrect");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 288, 28));
+        msg.setFont(new java.awt.Font("Book Antiqua", 0, 14)); // NOI18N
+        msg.setForeground(new java.awt.Color(153, 153, 153));
+        msg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        msg.setText("---------------------------------");
+        msg.setName("msg"); // NOI18N
+        add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 288, 28));
 
         button1.setBackground(new java.awt.Color(255, 224, 25));
         button1.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,6 +82,6 @@ public class message extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private bus2.message.Button button1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel msg;
     // End of variables declaration//GEN-END:variables
 }

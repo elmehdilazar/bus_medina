@@ -6,6 +6,7 @@ package bus2;
 
 
 
+import bus2.message.GlassPanePopup;
 import java.awt.Color;
 import java.awt.Component;
 
@@ -28,6 +29,7 @@ private static client cli;
      */
     public client() {
         initComponents();
+         GlassPanePopup.install(this);
       //  jPanel1.setOpaque(false);
    //  jPanel1.setBackground(new Color(0, 0, 0, 128));
    cli=this;
@@ -59,7 +61,6 @@ private static client cli;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("client"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1077, 542));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -98,7 +99,7 @@ private static client cli;
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 224, 25));
         jLabel7.setText("medina");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 23, 140, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 23, 90, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bus2/icon/icons8-home-20.png"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 20, 20, -1));

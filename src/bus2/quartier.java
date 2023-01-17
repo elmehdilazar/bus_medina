@@ -35,7 +35,7 @@ private  Connection c;
         sb.setForeground(new Color(51, 51, 51, 100));
         tableAdmin.fixTable(jScrollPane1);
           try{
-           Class.forName("com.mysql.jdbc.Driver");
+           Class.forName("com.mysql.cj.jdbc.Driver");
     c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus","root","");
         java.sql.ResultSet ab;
             try {
@@ -57,7 +57,15 @@ private  Connection c;
                 sql = "SELECT * FROM `quartier` q INNER join stations s on s.idstations=q.stations_idstations INNER JOIN ligne l on l.id_ligne=s.id_ligne;";
          
          }else{
-              sql = "SELECT * FROM `quartier` q INNER join stations s on s.idstations=q.stations_idstations INNER JOIN ligne l on l.id_ligne=s.id_ligne where q.nom_quartier like '%"+val.trim()+"%';";
+              sql = "SELECT * FROM `quartier` q "
+                      + "INNER join stations s on s.idstations=q.stations_idstations "
+                      + "INNER JOIN ligne l on l.id_ligne=s.id_ligne "
+                      + " where "
+                      + " q.nom_quartier like '%"+val.trim()+"%'"
+                      + " OR q.idQuartier = '"+val.trim()+"'"
+                      + " OR l.id_ligne = '"+val.trim()+"'"
+                      + " OR s.nom_station like '%"+val.trim()+"%'"
+                      + ";";
          
          }
        PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -97,6 +105,8 @@ private  Connection c;
         val = new Dashboard.component.TextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAdmin = new Dashboard.form.TableDark();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +116,6 @@ private  Connection c;
         roundPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         val.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        val.setText("rechrehcer...");
         val.setAlignmentX(5.0F);
         val.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
@@ -118,7 +127,7 @@ private  Connection c;
                 valActionPerformed(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 32));
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 190, 32));
 
         tableAdmin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,9 +142,20 @@ private  Connection c;
         ));
         jScrollPane1.setViewportView(tableAdmin);
 
-        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 650, 320));
+        roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 780, 320));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 680, 400));
+        jLabel7.setBackground(new java.awt.Color(255, 224, 25));
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 224, 25));
+        jLabel7.setText("recherchez :");
+        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 110, 50));
+
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("les quartiers :");
+        roundPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 180, 30));
+
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 820, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void valActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valActionPerformed
@@ -152,6 +172,8 @@ private  Connection c;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableAdmin;

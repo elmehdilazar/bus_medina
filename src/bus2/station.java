@@ -54,9 +54,14 @@ private  Connection c;
          Connection c = this.c;
            String sql;
          if(val==null || val.isEmpty() || val.trim().isEmpty() || val=="rechercher..." ){
-             sql = "SELECT * FROM `stations`";
+             sql = "SELECT * FROM `stations` "
+               
+                      + ";";
          }else{
-              sql = "SELECT * FROM `stations` where nom_station like '%"+val+"%'";
+              sql = "SELECT * FROM `stations` where nom_station like '%"+val.trim()+"%' "
+                      + " XOR id_ligne = '"+val.trim()+"' "
+                      + " XOR idstations = '"+val.trim()+"' "
+                      + ";";
          }
        
          PreparedStatement st = c.prepareStatement(sql, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -96,6 +101,8 @@ private  Connection c;
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAdmin = new Dashboard.form.TableDark();
         val = new Dashboard.component.TextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -119,13 +126,23 @@ private  Connection c;
 
         roundPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 930, 290));
 
-        val.setText("rechercher...");
         val.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 valCaretUpdate(evt);
             }
         });
-        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 200, -1));
+        roundPanel1.add(val, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 200, -1));
+
+        jLabel8.setFont(new java.awt.Font("Book Antiqua", 1, 20)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("les stations :");
+        roundPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 180, 30));
+
+        jLabel7.setBackground(new java.awt.Color(255, 224, 25));
+        jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 224, 25));
+        jLabel7.setText("recherchez :");
+        roundPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 110, 50));
 
         add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 1020, 390));
     }// </editor-fold>//GEN-END:initComponents
@@ -141,6 +158,8 @@ private  Connection c;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private Dashboard.swing.RoundPanel roundPanel1;
     private Dashboard.form.TableDark tableAdmin;

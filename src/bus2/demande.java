@@ -6,6 +6,8 @@ package bus2;
 
 
 import Dashboard.form.Dashsql;
+import bus2.message.GlassPanePopup;
+import bus2.message.message;
 import java.awt.Color;
 import bus2.sqlFun.*;
 import java.io.EOFException;
@@ -26,7 +28,8 @@ private Connection c;
         roundPanel1.setBackground(new Color(0,0,0,128));
         try{
 
-          Connection c = Dashsql.connection();
+         Class.forName("com.mysql.cj.jdbc.Driver");
+        c = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus", "root", "");
 
         java.sql.ResultSet ab;
             try {
@@ -77,15 +80,13 @@ private Connection c;
         adresse = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        date_naissance = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         type_abonne = new bus2.combobox.ComboBoxSuggestion();
         tele = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
 
+        setName("dm"); // NOI18N
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1080, 465));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,7 +101,7 @@ private Connection c;
                 jBtn1ActionPerformed(evt);
             }
         });
-        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, 180, -1));
+        roundPanel1.add(jBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 180, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 224, 25));
         jLabel7.setFont(new java.awt.Font("Book Antiqua", 1, 22)); // NOI18N
@@ -189,42 +190,28 @@ private Connection c;
         jLabel15.setText("adresse");
         roundPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
-        date_naissance.setBackground(new Color(0,0,0,0));
-        date_naissance.setForeground(new java.awt.Color(255, 224, 25));
-        date_naissance.setBorder(null);
-        roundPanel1.add(date_naissance, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 190, 20));
-
-        jLabel5.setForeground(new java.awt.Color(255, 224, 25));
-        jLabel5.setText("_______________________________________");
-        roundPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 200, 30));
-
-        jLabel16.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel16.setText("date naissance");
-        roundPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-
         jLabel17.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("abonnement");
-        roundPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+        roundPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
-        roundPanel1.add(type_abonne, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 190, -1));
+        roundPanel1.add(type_abonne, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 190, -1));
 
         tele.setBackground(new Color(0,0,0,0));
         tele.setForeground(new java.awt.Color(255, 224, 25));
         tele.setBorder(null);
-        roundPanel1.add(tele, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 190, 20));
+        roundPanel1.add(tele, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 190, 20));
 
         jLabel14.setForeground(new java.awt.Color(255, 224, 25));
         jLabel14.setText("_______________________________________");
-        roundPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 200, 30));
+        roundPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 200, 30));
 
         jLabel18.setFont(new java.awt.Font("Book Antiqua", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("telephone");
-        roundPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        roundPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
-        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 316, 500));
+        add(roundPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 316, 470));
     }// </editor-fold>//GEN-END:initComponents
 
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
@@ -244,7 +231,28 @@ private Connection c;
         String[] id_ab=((String)type_abonne.getItemAt(selectedIndex)).split("-",2);
         System.out.println();
     try {
-        Admin.ajouter_personne(c, cinA, date, Integer.parseInt(tel), addressA, nomA, prenomA, emailA,Integer.parseInt(id_ab[1]));
+        if((!cinA.trim().isEmpty() 
+                || !nomA.trim().isEmpty() 
+                || !prenomA.trim().isEmpty() 
+                || !addressA.trim().isEmpty() 
+                || !emailA.trim().isEmpty() 
+                || !tel.trim().isEmpty() )
+                && (cinA!=null 
+                || nomA!=null 
+                || prenomA!=null 
+                || addressA!=null 
+                || emailA!=null 
+                || tel!=null 
+               )){
+              System.out.println("ok");
+             Admin.ajouter_personne(c, cinA, date, Integer.parseInt(tel), addressA, nomA, prenomA, emailA,Integer.parseInt(id_ab[1])); 
+          
+             GlassPanePopup.showPopup(new message("le demande envoyer "));
+        }else{
+                System.out.println("no");
+               GlassPanePopup.showPopup(new message("valider les champs !!!!!"));
+        }
+      
     } catch (SQLException ex) {
         Logger.getLogger(demande.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -257,7 +265,6 @@ private Connection c;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adresse;
     private javax.swing.JTextField cin;
-    private javax.swing.JTextField date_naissance;
     private javax.swing.JTextField email;
     private Dashboard.component.jBtn jBtn1;
     private javax.swing.JLabel jLabel10;
@@ -266,13 +273,11 @@ private Connection c;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
